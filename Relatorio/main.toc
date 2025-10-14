@@ -35,32 +35,26 @@
 \contentsline {subsection}{\numberline {6.4}Simulação e validação}{10}{subsection.6.4}%
 \contentsline {subsection}{\numberline {6.5}Modelo com canais assíncronos}{10}{subsection.6.5}%
 \contentsline {subsection}{\numberline {6.6}Simulação e Análise}{10}{subsection.6.6}%
-\contentsline {subsubsection}{\numberline {6.6.1}Simulação com token-player}{10}{subsubsection.6.6.1}%
-\contentsline {subsubsection}{\numberline {6.6.2}Simulação temporal}{10}{subsubsection.6.6.2}%
-\contentsline {subsubsection}{\numberline {6.6.3}Geração e análise do espaço de estados}{10}{subsubsection.6.6.3}%
 \contentsline {subsection}{\numberline {6.7}Decomposição GALS - três controladores separados}{10}{subsection.6.7}%
 \contentsline {section}{\numberline {7}Implementação em FPGA - Distribuição Síncrona}{11}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Geração do código VHDL}{11}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Interconexão dos componentes}{11}{subsection.7.2}%
-\contentsline {subsubsection}{\numberline {7.2.1}Implementação do módulo de atraso pseudo-aleatório}{11}{subsubsection.7.2.1}%
-\contentsline {subsubsection}{\numberline {7.2.2}LFSR - conceito e implementação}{11}{subsubsection.7.2.2}%
-\contentsline {subsubsection}{\numberline {7.2.3}Integração dos atrasos nas comunicações}{11}{subsubsection.7.2.3}%
 \contentsline {subsection}{\numberline {7.3}Deployment na FPGA}{11}{subsection.7.3}%
 \contentsline {subsection}{\numberline {7.4}Testes e análise de resultados}{11}{subsection.7.4}%
 \contentsline {section}{\numberline {8}Buffers de Capacidade Finita}{12}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Modificação do modelo para múltiplas peças (máximo 3)}{12}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.1}Modificação do modelo para múltiplas peças}{12}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}Interconexão dos componentes}{12}{subsection.8.2}%
 \contentsline {subsection}{\numberline {8.3}Módulo de visualização do número de objetos}{12}{subsection.8.3}%
 \contentsline {subsection}{\numberline {8.4}Simulação e validação}{12}{subsection.8.4}%
 \contentsline {subsection}{\numberline {8.5}Implementação centralizada em FPGA}{12}{subsection.8.5}%
 \contentsline {subsection}{\numberline {8.6}Análise de resultados}{12}{subsection.8.6}%
 \contentsline {section}{\numberline {9}Distribuído com Buffers (Síncrono)}{13}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Aplicação dos procedimentos do capítulo 06 ao modelo do capítulo 08}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.1}Aplicação síncrona ao buffer de capacidade finita}{13}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Decomposição e implementação distribuída}{13}{subsection.9.2}%
 \contentsline {subsection}{\numberline {9.3}Execução síncrona global}{13}{subsection.9.3}%
 \contentsline {subsection}{\numberline {9.4}Testes e análise}{13}{subsection.9.4}%
 \contentsline {section}{\numberline {10}Distribuído com Buffers (Assíncrono)}{14}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Aplicação dos procedimentos do capítulo 07 ao modelo do capítulo 08}{14}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.1}Aplicação assíncrona ao buffer de capacidade finita}{14}{subsection.10.1}%
 \contentsline {subsection}{\numberline {10.2}Comunicações não-instantâneas com buffers}{14}{subsection.10.2}%
 \contentsline {subsection}{\numberline {10.3}Deployment e testes}{14}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}Análise comparativa}{14}{subsection.10.4}%
@@ -73,5 +67,4 @@
 \contentsline {section}{\numberline {12}Conclusões}{16}{section.12}%
 \contentsline {subsection}{\numberline {12.1}Resultados alcançados}{16}{subsection.12.1}%
 \contentsline {subsection}{\numberline {12.2}Dificuldades encontradas e soluções adotadas}{16}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Trabalho futuro}{16}{subsection.12.3}%
 \contentsfinish 
