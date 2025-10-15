@@ -3,9 +3,51 @@
 \subsection{Redes de Petri}
 %Redes de Petri e Redes de Petri Coloridas
 
+As redes de Petri constituem uma ferramenta formal de modelação adequada para sistemas concorrentes e distribuídos. Uma rede de Petri é definida por uma quádrupla $PN = (P, T, F, M_0)$, onde P representa lugares, T transições, F arcos direcionados, e $M_0$ a marcação inicial. A dinâmica baseia-se no disparo de transições, que removem tokens dos lugares de entrada e adicionam aos de saída.
+
+\textbf{Redes IOPT (Input-Output Place-Transition)} estendem as redes clássicas com capacidade de interagir com o ambiente através de:
+\begin{itemize}
+    \item Eventos de entrada associados a sinais externos (sensores);
+    \item Sinais de saída para controlo de atuadores;
+    \item Guardas e prioridades para resolução de conflitos;
+    \item Semântica temporal para modelar delays.
+\end{itemize}
+
+\textbf{Redes de Petri Coloridas} permitem representar de forma compacta sistemas com estrutura repetitiva. Os tokens possuem "cores" (tipos de dados), permitindo que um único modelo represente múltiplas instâncias de subsistemas idênticos. No sistema estudado, tokens $\langle 1 \rangle$, $\langle 2 \rangle$ e $\langle 3 \rangle$ identificam cada célula.
+
+\textbf{Composição Modular:} A construção de sistemas complexos utiliza operações de:
+\begin{itemize}
+    \item \textit{Merge Nets}: união de múltiplas redes mantendo nós distintos;
+    \item \textit{Fusion Sets}: identificação de nós a fundir criando sincronização;
+    \item \textit{Net Addition}: combinação de merge e fusão num modelo integrado.
+\end{itemize}
+
 \subsection{Execução síncrona vs. GALS}
 %Paradigma de execução síncrona vs. GALS (Globally Asynchronous Locally Synchronous)
+
+Em contexto síncrono, todos os componentes operam com um relógio global comum. Oferece simplicidade de design e determinismo, mas apresenta limitações de escalabilidade, consumo energético elevado (relógio sempre ativo) e dificuldades na distribuição do sinal de relógio (clock skew) em sistemas grandes.
+
+Já num paradigma GALS, este divide o sistema em domínios síncronos locais que comunicam assincronamente. Cada domínio opera com relógio independente, comunicando através de protocolos de handshaking ou FIFOs assíncronas.
+
+Vantagens do GALS incluem escalabilidade, modularidade, eficiência energética e tolerância a falhas. As desvantagens são a maior complexidade de interface, latência variável na comunicação e necessidade de tratamento de metastabilidade nas fronteiras entre domínios.
 
 \subsection{Implementação em FPGA e Arduino}
 %Conceitos de implementação em FPGA e Arduino
 
+Utilizar-se-á uma \textbf{FPGA (Field-Programmable Gate Array)}. A descrição do sistema é feita em VHDL, uma linguagem de descrição de hardware que permite especificar comportamento concorrente. Recorrer-se-á também a um microcontrolador \textbf{Arduino}.
+
+A framework IOPT-Tools permite geração automática de código VHDL para FPGA e código C para Arduino, facilitando a comparação entre as duas abordagens de implementação.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Critério} & \textbf{FPGA} & \textbf{Arduino} \\
+\hline
+Paralelismo & Hardware real & Software (sequencial) \\
+Tempo de resposta & ns & ms \\
+\hline
+\end{tabular}
+\caption{Comparação entre plataformas FPGA e Arduino}
+\end{table}
