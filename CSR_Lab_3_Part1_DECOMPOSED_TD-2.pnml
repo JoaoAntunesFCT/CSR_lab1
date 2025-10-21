@@ -1,0 +1,732 @@
+<?xml version="1.0"?>
+<Snoopy revision="0" version="0">
+  <pnml>
+    <net id="1" name="CSR___Lab_3___Part1" type="IOPT">
+      <input>
+        <signal id="ini" type="boolean" value="0" gpio_nr="0">
+          <graphics>
+            <position page="1" x="150" y="250"/>
+          </graphics>
+        </signal>
+        <signal id="outi_2" type="boolean" value="0" gpio_nr="0">
+          <graphics>
+            <position page="1" x="150" y="280"/>
+          </graphics>
+        </signal>
+        <event id="event71_td_2" autonomous="true">
+          <graphics>
+            <position page="1" x="140" y="90"/>
+          </graphics>
+        </event>
+        <event id="event90_td_2" autonomous="true">
+          <graphics>
+            <position page="1" x="140" y="120"/>
+          </graphics>
+        </event>
+      </input>
+      <output>
+        <signal id="movei_2" type="boolean" value="0" gpio_nr="0">
+          <graphics>
+            <position page="1" x="150" y="320"/>
+          </graphics>
+        </signal>
+        <signal id="Bot1" type="boolean" value="0" gpio_nr="0">
+          <graphics>
+            <position page="1" x="150" y="340"/>
+          </graphics>
+        </signal>
+        <signal id="Bot2" type="boolean" value="0" gpio_nr="0">
+          <graphics>
+            <position page="1" x="150" y="360"/>
+          </graphics>
+        </signal>
+        <event id="event74_td_1" autonomous="true">
+          <graphics>
+            <position page="1" x="140" y="180"/>
+          </graphics>
+        </event>
+        <event id="event87_td_3" autonomous="true">
+          <graphics>
+            <position page="1" x="140" y="150"/>
+          </graphics>
+        </event>
+      </output>
+      <variable/>
+      <place id="8">
+        <name>
+          <text>pl_8</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>0</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="1060" y="230"/>
+        </graphics>
+        <signalOutputActions>
+          <signalOutputAction idRef="Bot1">
+            <value>
+              <concreteSyntax language="iopt">
+                <text>1</text>
+                <expression>
+                  <operand type="literal" value="1" seq="1"/>
+                </expression>
+              </concreteSyntax>
+            </value>
+            <condition>
+              <concreteSyntax language="iopt">
+                <text/>
+              </concreteSyntax>
+            </condition>
+          </signalOutputAction>
+        </signalOutputActions>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <place id="9">
+        <name>
+          <text>pl_9</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>0</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="1390" y="230"/>
+        </graphics>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <transition id="13">
+        <name>
+          <text>tr_13</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards>
+          <signalinputguard>
+            <concreteSyntax language="iopt">
+              <text>ini = 1</text>
+              <expression>
+                <operand type="input-signal" idRef="ini" seq="1"/>
+                <operation operator="equal" seq="2">
+                  <operand type="literal" value="1" seq="3"/>
+                </operation>
+              </expression>
+            </concreteSyntax>
+          </signalinputguard>
+        </signalInputGuards>
+        <inputEvents/>
+        <graphics>
+          <position page="1" x="1230" y="230"/>
+        </graphics>
+        <outputEvents/>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <arc id="22" source="8" target="13">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="23" source="13" target="9">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <transition id="25">
+        <name>
+          <text>tr_25</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards>
+          <signalinputguard>
+            <concreteSyntax language="iopt">
+              <text>ini = 1</text>
+              <expression>
+                <operand type="input-signal" idRef="ini" seq="1"/>
+                <operation operator="equal" seq="2">
+                  <operand type="literal" value="1" seq="3"/>
+                </operation>
+              </expression>
+            </concreteSyntax>
+          </signalinputguard>
+        </signalInputGuards>
+        <inputEvents/>
+        <graphics>
+          <position page="1" x="1390" y="320"/>
+        </graphics>
+        <outputEvents>
+          <event idRef="event74_td_1"/>
+        </outputEvents>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <place id="34_4">
+        <name>
+          <text>pl_4_2</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>0</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="330" y="450"/>
+        </graphics>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <place id="34_5">
+        <name>
+          <text>pl_5_2</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>1</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="330" y="520"/>
+        </graphics>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <place id="34_6">
+        <name>
+          <text>pl_6_2</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>0</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="680" y="450"/>
+        </graphics>
+        <signalOutputActions>
+          <signalOutputAction idRef="Bot2">
+            <value>
+              <concreteSyntax language="iopt">
+                <text>1</text>
+                <expression>
+                  <operand type="literal" value="1" seq="1"/>
+                </expression>
+              </concreteSyntax>
+            </value>
+            <condition>
+              <concreteSyntax language="iopt">
+                <text/>
+              </concreteSyntax>
+            </condition>
+          </signalOutputAction>
+        </signalOutputActions>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <transition id="34_10">
+        <name>
+          <text>tr_10_2</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards>
+          <signalinputguard>
+            <concreteSyntax language="iopt">
+              <text>outi_2 = 1</text>
+              <expression>
+                <operand type="input-signal" idRef="outi_2" seq="1"/>
+                <operation operator="equal" seq="2">
+                  <operand type="literal" value="1" seq="3"/>
+                </operation>
+              </expression>
+            </concreteSyntax>
+          </signalinputguard>
+        </signalInputGuards>
+        <inputEvents/>
+        <graphics>
+          <position page="1" x="150" y="450"/>
+        </graphics>
+        <outputEvents/>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <transition id="34_11">
+        <name>
+          <text>tr_11_2</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards>
+          <signalinputguard>
+            <concreteSyntax language="iopt">
+              <text>outi_2 = 1</text>
+              <expression>
+                <operand type="input-signal" idRef="outi_2" seq="1"/>
+                <operation operator="equal" seq="2">
+                  <operand type="literal" value="1" seq="3"/>
+                </operation>
+              </expression>
+            </concreteSyntax>
+          </signalinputguard>
+        </signalInputGuards>
+        <inputEvents/>
+        <graphics>
+          <position page="1" x="520" y="450"/>
+        </graphics>
+        <outputEvents/>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <transition id="34_12">
+        <name>
+          <text>tr_12_2</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards>
+          <signalinputguard>
+            <concreteSyntax language="iopt">
+              <text>outi_2 = 0</text>
+              <expression>
+                <operand type="input-signal" idRef="outi_2" seq="1"/>
+                <operation operator="equal" seq="2">
+                  <operand type="literal" value="0" seq="3"/>
+                </operation>
+              </expression>
+            </concreteSyntax>
+          </signalinputguard>
+        </signalInputGuards>
+        <inputEvents/>
+        <graphics>
+          <position page="1" x="800" y="450"/>
+        </graphics>
+        <outputEvents>
+          <event idRef="event87_td_3"/>
+        </outputEvents>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <arc id="34_15" source="34_10" target="34_4">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="34_16" source="34_4" target="34_11">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="34_17" source="34_5" target="34_11">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="-7" y="-1"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="34_18" source="34_11" target="34_6">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="51" source="49" target="34_10">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <place id="49">
+        <name>
+          <text>ppb</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>0</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="860" y="340"/>
+        </graphics>
+        <signalOutputActions>
+          <signalOutputAction idRef="movei_2">
+            <value>
+              <concreteSyntax language="iopt">
+                <text>1</text>
+                <expression>
+                  <operand type="literal" value="1" seq="1"/>
+                </expression>
+              </concreteSyntax>
+            </value>
+            <condition>
+              <concreteSyntax language="iopt">
+                <text/>
+              </concreteSyntax>
+            </condition>
+          </signalOutputAction>
+        </signalOutputActions>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <arc id="53" source="52" target="13">
+        <type>normal</type>
+        <graphics>
+          <offset x="30" y="-40"/>
+          <offset x="-70" y="0"/>
+        </graphics>
+        <inscription>
+          <graphics>
+            <offset page="1" x="-7" y="-1"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <place id="52">
+        <name>
+          <text>pl_32</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <initialMarking>
+          <text>1</text>
+          <graphics>
+            <offset x="0" y="-1"/>
+          </graphics>
+        </initialMarking>
+        <bound>
+          <text>1</text>
+        </bound>
+        <graphics>
+          <position page="1" x="1060" y="340"/>
+        </graphics>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </place>
+      <transition id="68">
+        <name>
+          <text>tr_121</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards/>
+        <inputEvents>
+          <event idRef="event71_td_2"/>
+        </inputEvents>
+        <graphics>
+          <position page="1" x="980" y="230"/>
+        </graphics>
+        <outputEvents/>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <arc id="80" source="68" target="8">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="81" source="9" target="25">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="82" source="25" target="49">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <transition id="85">
+        <name>
+          <text>tr_25_21</text>
+          <graphics>
+            <offset x="-10" y="20"/>
+          </graphics>
+        </name>
+        <comment>
+          <text/>
+          <graphics>
+            <offset x="-30" y="20"/>
+          </graphics>
+        </comment>
+        <priority>1</priority>
+        <signalInputGuards/>
+        <inputEvents>
+          <event idRef="event90_td_2"/>
+        </inputEvents>
+        <graphics>
+          <position page="1" x="690" y="580"/>
+        </graphics>
+        <outputEvents/>
+        <timedomain>
+          <text>2</text>
+          <graphics>
+            <offset x="20" y="0"/>
+          </graphics>
+        </timedomain>
+      </transition>
+      <arc id="93" source="85" target="34_5">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="94" source="34_6" target="34_12">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+      <arc id="95" source="34_12" target="52">
+        <type>normal</type>
+        <graphics/>
+        <inscription>
+          <graphics>
+            <offset page="1" x="0" y="-5"/>
+          </graphics>
+          <value>1</value>
+        </inscription>
+      </arc>
+    </net>
+  </pnml>
+</Snoopy>
