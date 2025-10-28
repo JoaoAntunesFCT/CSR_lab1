@@ -1,0 +1,35 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Tzu(1986)]{lao1986tao}
+Lao Tzu.
+\newblock \emph{Tao Te Ching}.
+\newblock Penguin Classics. Penguin Books, London, reprint edition edition,
+  1986.
+\newblock ISBN 9780140441314.
+\newblock D. C. Lau Translation.
+
+\bibitem[Razavi(2012)]{Razavi2012RF}
+Behzad Razavi.
+\newblock \emph{RF Microelectronics}.
+\newblock Communications Engineering and Emerging Technologies Series. Prentice
+  Hall, 2nd edition, 2012.
+\newblock ISBN 9780137134733.
+
+\bibitem[da~Silva(2001)]{silva2001introducao}
+Manuel~Medeiros da~Silva.
+\newblock \emph{Introdução aos Circuitos Eléctricos e Electrónicos}.
+\newblock Fundação Calouste Gulbenkian, December 2001.
+\newblock ISBN 9789723106961.
+
+\bibitem[de~Medeiros~Silva(2003)]{silva2003circuitos}
+Manuel de~Medeiros~Silva.
+\newblock \emph{Circuitos com Transistores Bipolares e MOS}.
+\newblock Fundação Calouste Gulbenkian, December 2003.
+\newblock ISBN 9789723108408.
+
+\end{thebibliography}
