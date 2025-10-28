@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1761665503.4084 "main.aux" "main.bbl" "main" 1761665529.26986 0
-  "./bibliography.bib" 1759748218 1225 8f176492add407d2ab57bfa33c891f0f ""
+["bibtex main"] 1761672857.85009 "main.aux" "main.bbl" "main" 1761672858.32777 2
+  "./bibliography.bib" 1761668417 364 7b6405a684c047aff27ea3617e1bb61a ""
   "C:/Users/offic/AppData/Local/Programs/MiKTeX/bibtex/bst/natbib/unsrtnat.bst" 1284455456 24550 a41a6405f4de768c43e871d9fbce2bc8 ""
-  "main.aux" 1761665527 11934 ed0a1044833631eae7e30d3b6b19f4ba "pdflatex"
+  "main.aux" 1761672849 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1761665521.63333 "c:/Users/offic/OneDrive/FCT - MEEC/5 ano/Digitais/CSR/Projeto 1/CSR_lab1/Relatorio/main.tex" "main.pdf" "main" 1761665529.27104 2
+["pdflatex"] 1761672848.40888 "c:/Users/offic/OneDrive/FCT - MEEC/5 ano/Digitais/CSR/Projeto 1/CSR_lab1/Relatorio/main.tex" "main.pdf" "main" 1761672856.98042 2
   "C:/Users/offic/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1760717600 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/offic/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1095.pk" 1760460802 28976 945db68bd978f56442e5e0ef107e104f ""
   "C:/Users/offic/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/ecbx1200.pk" 1760025128 31952 50093e79775216ed6b32811e46434a5a ""
@@ -269,20 +269,20 @@
   "img/petri_node_set.png" 1760463086 168805 56c03b6a5940ab3b9463528e9df50724 ""
   "img/petri_statespace.png" 1761059079 61207 538f939292a910ef5705bd99b8251b0d ""
   "img/petri_tapete_singular.png" 1760462225 38080 02a0749a81cab4f828437e85e9e055a2 ""
-  "main.aux" 1761665527 11934 ed0a1044833631eae7e30d3b6b19f4ba "pdflatex"
-  "main.bbl" 1761665503 1220 4befae5c3275068ebed57202d633f1e0 "bibtex main"
-  "main.out" 1761665528 14063 aab70b5049f11b00f495e19ac45ba676 "pdflatex"
+  "main.aux" 1761672849 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.bbl" 1761672858 0 d41d8cd98f00b204e9800998ecf8427e "bibtex main"
+  "main.out" 0 -1 0 "pdflatex"
   "main.tex" 1761059864 8101 61e716416b3a7931ed2d6f83ec7b03d0 ""
-  "main.toc" 1761665528 6540 ce215fcd58b22a2cf7ca0ff7ca1b1d4c "pdflatex"
+  "main.toc" 0 -1 0 "pdflatex"
   "sections/01_intro.tex" 1760460466 2479 55c3b983f569c3cea206ca84215eabfa ""
   "sections/02_theory.tex" 1760461244 3508 a64bf9c11b03e35656145a572e5c9dc5 ""
   "sections/03_petri.tex" 1761059864 1852 b92557d49dc8b9678cbce44d650cb633 ""
-  "sections/04_fpga.tex" 1760457176 257 67379081ae686d08a72d2993ec58476a ""
-  "sections/05_arduino.tex" 1760455884 241 1896f3492d2f08fb232949d552e2045d ""
-  "sections/06_sync.tex" 1760463487 507 b0cc175a56897d0d6c3ec9457803a506 ""
-  "sections/07_fpga_v2.tex" 1760463477 372 13f00984bfa887301f0883f9a9860388 ""
-  "sections/08_multiple_inputs.tex" 1760463507 349 40062a920c44cc3590eeadb153503898 ""
-  "sections/09_sync_buffer.tex" 1760463589 261 b90b1291858c4af48ed576459f7b9490 ""
+  "sections/04_fpga.tex" 1761668006 233 a99ffb58d56564374d1a6cf0fcede364 ""
+  "sections/05_arduino.tex" 1761672548 223 6b14420360508e2d689c33c892b46d10 ""
+  "sections/06_sync.tex" 1761672688 2312 7d5c5dee145440ce8ad071074221d57d ""
+  "sections/07_fpga_v2.tex" 1761671892 400 45efe9ea79faa9519a4f7c1958ecf100 ""
+  "sections/08_multiple_inputs.tex" 1761672847 967 c361bb19f3a11e930d07ac7a6c36428b ""
+  "sections/09_sync_buffer.tex" 1761672548 1200 0ff69465d7b752e41dfecc561582f3c1 ""
   "sections/10_async_buffer.tex" 1760463604 258 e0f880cb428efa15eca0e74fb76c5708 ""
   "sections/11_comparasion.tex" 1760457397 280 f22b4c70572ac978f38f3dfc286ad714 ""
   "sections/12_conclusion.tex" 1760463647 121 88e9ea1183b49ba0bc9b30b7f4b7bf9a ""

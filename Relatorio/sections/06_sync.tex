@@ -1,18 +1,26 @@
 \section{Controlador Distribuído em regime Síncrono}
 
-\subsection{Identificação do conjunto de corte (cutting set)}
+\subsection{Cutting Set}
+A identificação do conjunto de corte (cutting set) é um passo crucial na decomposição de sistemas distribuídos. Este conjunto consiste em um grupo de canais ou conexões que, quando removidos, dividem o sistema em subsistemas independentes. A escolha adequada do cutting set permite a implementação eficiente de controladores distribuídos, minimizando a complexidade da comunicação entre os módulos.
+%print da abordagem para cutting set
 
-\subsection{Decomposição usando SPLIT}
+\subsection{Decomposição SPLIT}
+A decomposição usando SPLIT (Synchronous Parallel Logic Interconnect Technology) permite a criação de uma arquitetura mais flexível e escalável, dividindo o sistema em módulos independentes que se comunicam através de canais síncronos. Essa abordagem facilita a implementação de sistemas complexos, permitindo a reutilização de componentes e a redução do tempo de desenvolvimento.
+%print da decomposição SPLIT
 
 \subsection{Modelo com canais síncronos}
-
-\subsection{Simulação e validação}
+A modelação com canais síncronos envolve a definição de canais de comunicação que operam em sincronia, permitindo a troca de informações entre os módulos de forma coordenada. Essa abordagem é fundamental para garantir a consistência e a previsibilidade no comportamento do sistema.
+%print of that shit mm
 
 \subsection{Modelo com canais assíncronos}
+A modelação com canais assíncronos envolve a definição de canais de comunicação que operam de forma independente, permitindo a troca de informações entre os módulos sem a necessidade de sincronização. Essa abordagem é útil em sistemas onde a latência e a largura de banda são variáveis, proporcionando maior flexibilidade na comunicação.
+%print of that shit mm
+
 
 \subsection{Simulação e Análise}
 %Simulação com token-player
 %Simulação temporal
 %Geração e análise do espaço de estados
 
-\subsection{Decomposição GALS - três controladores separados}
+\subsection{Decomposição GALS}
+A decomposição GALS (Globally Asynchronous, Locally Synchronous) envolve a criação de três controladores separados que operam de forma independente, permitindo uma maior flexibilidade e escalabilidade no sistema. Essa abordagem facilita a integração de diferentes módulos e a adaptação a variações nas condições de operação.
