@@ -81,29 +81,21 @@ architecture Structural of CSR_Lab_3_Part1_main is
     );
   end component;
 
+-------------------------------------------------------------------
+  -- Updated LFSR24 with delay multiplier
+  -------------------------------------------------------------------
   component LFSR24 is
-    port (
-      Clk    : in  std_logic;
-      Reset  : in  std_logic;
-      Enable : in  std_logic;
-      Q      : out std_logic_vector(23 downto 0)
-    );
-  end component;
-
-  component EventDelay is
     generic (
-      WIDTH : integer := 4
+      MULT_SHIFT : integer := 8
     );
     port (
-      Clk       : in  std_logic;
-      Reset     : in  std_logic;
-      Enable    : in  std_logic;
-      lfsr_bits : in  std_logic_vector(WIDTH-1 downto 0);
-      evt_in    : in  std_logic;
-      evt_out   : out std_logic
+      Clk     : in  std_logic;
+      Reset   : in  std_logic;
+      Enable  : in  std_logic;
+      evt_in  : in  std_logic;
+      evt_out : out std_logic
     );
   end component;
-
   -------------------------------------------------------------------
   -- Internal signals
   -------------------------------------------------------------------
@@ -114,77 +106,62 @@ architecture Structural of CSR_Lab_3_Part1_main is
   signal event_event74_td_1, event_event71_td_2, event_event90_td_2, event_event87_td_3 : std_logic;
   signal out_evt_event71_td_2, out_evt_event74_td_1, out_evt_event90_td_2, out_evt_event87_td_3 : std_logic;
 
-  signal lfsr_q : std_logic_vector(23 downto 0);
-
-  -- delayed versions of the inter-TD events
-  signal delayed_event74, delayed_event71, delayed_event87, delayed_event90 : std_logic;
+  -- Random delay signals (each using its own LFSR24)
+  signal rand_delay_TD1 : std_logic;
+  signal rand_delay_TD2 : std_logic;
+  signal rand_delay_TD3 : std_logic;
 
 begin
 
   -------------------------------------------------------------------
-  -- LFSR (pseudo-random generator)
+  -- Random Delay Generators (LFSR24 with multipliers)
   -------------------------------------------------------------------
-  U_LFSR : LFSR24
+
+  -- TD2 → TD1 (moderate delay)
+  U_LFSR_TD1 : LFSR24
+    generic map (MULT_SHIFT => 8)   
     port map (
-      Clk    => Clk,
-      Reset  => Reset,
-      Enable => Enable,
-      Q      => lfsr_q
+      Clk     => Clk,
+      Reset   => Reset,
+      Enable  => Enable,
+      evt_in  => out_evt_event74_td_1,
+      evt_out => event_event74_td_1
     );
 
-  -------------------------------------------------------------------
-  -- Event Delay Instances (insert between TD blocks)
-  -------------------------------------------------------------------
-  -- Delay event from TD2 → TD1
-  U_Delay74 : EventDelay
-    generic map ( WIDTH => 4 )
+  -- TD1 → TD2 (long delay)
+  U_LFSR_TD2 : LFSR24
+    generic map (MULT_SHIFT => 8)   -- 16× delay
     port map (
-      Clk       => Clk,
-      Reset     => Reset,
-      Enable    => Enable,
-      lfsr_bits => lfsr_q(3 downto 0),
-      evt_in    => out_evt_event74_td_1,
-      evt_out   => delayed_event74
+      Clk     => Clk,
+      Reset   => Reset,
+      Enable  => Enable,
+      evt_in  => out_evt_event71_td_2,
+      evt_out => event_event71_td_2
     );
 
-  -- Delay event from TD1 → TD2
-  U_Delay71 : EventDelay
-    generic map ( WIDTH => 4 )
+  -- TD2 → TD3 (short delay)
+  U_LFSR_TD3 : LFSR24
+    generic map (MULT_SHIFT => 8)   -- 16× delay
     port map (
-      Clk       => Clk,
-      Reset     => Reset,
-      Enable    => Enable,
-      lfsr_bits => lfsr_q(7 downto 4),
-      evt_in    => out_evt_event71_td_2,
-      evt_out   => delayed_event71
+      Clk     => Clk,
+      Reset   => Reset,
+      Enable  => Enable,
+      evt_in  => out_evt_event87_td_3,
+      evt_out => event_event87_td_3
     );
 
-  -- Delay event from TD2 → TD3
-  U_Delay87 : EventDelay
-    generic map ( WIDTH => 4 )
+  -- TD3 → TD2 (normal delay)
+  U_LFSR_TD4 : LFSR24
+    generic map (MULT_SHIFT => 8)   -- 16× delay
     port map (
-      Clk       => Clk,
-      Reset     => Reset,
-      Enable    => Enable,
-      lfsr_bits => lfsr_q(11 downto 8),
-      evt_in    => out_evt_event87_td_3,
-      evt_out   => delayed_event87
+      Clk     => Clk,
+      Reset   => Reset,
+      Enable  => Enable,
+      evt_in  => out_evt_event90_td_2,
+      evt_out => event_event90_td_2
     );
-
-  -- Delay event from TD3 → TD2
-  U_Delay90 : EventDelay
-    generic map ( WIDTH => 4 )
-    port map (
-      Clk       => Clk,
-      Reset     => Reset,
-      Enable    => Enable,
-      lfsr_bits => lfsr_q(15 downto 12),
-      evt_in    => out_evt_event90_td_2,
-      evt_out   => delayed_event90
-    );
-
-  -------------------------------------------------------------------
-  -- TD1
+ -------------------------------------------------------------------
+  -- TD1 instance
   -------------------------------------------------------------------
   U_TD1 : CSR_Lab_3_Part1_TD1
     port map (
@@ -192,35 +169,35 @@ begin
       outi => outi,
       ini => ini,
       in1 => in1,
-      event_event74_td_1 => delayed_event74, -- use delayed version
+      event_event74_td_1 => event_event74_td_1, -- delayed TD2→TD1
       movei => movei,
       Bot1 => Bot1_TD1,
-      out_evt_event71_td_2 => out_evt_event71_td_2,
+      out_evt_event71_td_2 => out_evt_event71_td_2, -- goes to TD2 through LFSR
       Enable => Enable,
       Reset => Reset
     );
 
   -------------------------------------------------------------------
-  -- TD2
+  -- TD2 instance
   -------------------------------------------------------------------
   U_TD2 : CSR_Lab_3_Part1_TD2
     port map (
       Clk => Clk,
       ini => ini,
       outi_2 => outi_2,
-      event_event71_td_2 => delayed_event71,
-      event_event90_td_2 => delayed_event90,
+      event_event71_td_2 => event_event71_td_2, -- delayed TD1→TD2
+      event_event90_td_2 => event_event90_td_2, -- delayed TD3→TD2
       movei_2 => movei_2,
       Bot1 => Bot1_TD2,
       Bot2 => Bot2_TD2,
-      out_evt_event74_td_1 => out_evt_event74_td_1,
-      out_evt_event87_td_3 => out_evt_event87_td_3,
+      out_evt_event74_td_1 => out_evt_event74_td_1, -- goes to TD1 through LFSR
+      out_evt_event87_td_3 => out_evt_event87_td_3, -- goes to TD3 through LFSR
       Enable => Enable,
       Reset => Reset
     );
 
   -------------------------------------------------------------------
-  -- TD3
+  -- TD3 instance
   -------------------------------------------------------------------
   U_TD3 : CSR_Lab_3_Part1_TD3
     port map (
@@ -228,15 +205,14 @@ begin
       ini_2 => ini_2,
       outi_3 => outi_3,
       ini_3 => ini_3,
-      event_event87_td_3 => delayed_event87,
+      event_event87_td_3 => event_event87_td_3, -- delayed TD2→TD3
       movei_3 => movei_3,
       Bot2 => Bot2_TD3,
       Bot3 => Bot3_TD3,
-      out_evt_event90_td_2 => out_evt_event90_td_2,
+      out_evt_event90_td_2 => out_evt_event90_td_2, -- goes to TD2 through LFSR
       Enable => Enable,
       Reset => Reset
     );
-
   -------------------------------------------------------------------
   -- Combine outputs
   -------------------------------------------------------------------

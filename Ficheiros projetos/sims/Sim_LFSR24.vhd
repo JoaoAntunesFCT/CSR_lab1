@@ -1,74 +1,66 @@
--- =============================================================
--- Testbench for 24-bit LFSR (LFSR24)
--- Polynomial: x^24 + x^23 + x^22 + x^17 + 1
--- Seed: 1
--- =============================================================
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_TEXTIO.ALL;
-use STD.TEXTIO.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 entity tb_LFSR24 is
 end entity;
 
 architecture sim of tb_LFSR24 is
+  -- DUT signals
+  signal Clk     : std_logic := '0';
+  signal Reset   : std_logic := '0';
+  signal Enable  : std_logic := '1';
+  signal evt_in  : std_logic := '0';
+  signal evt_out : std_logic;
 
-    -- DUT signals
-    signal Clk    : std_logic := '0';
-    signal Reset  : std_logic := '0';
-    signal Enable : std_logic := '1';
-    signal Q      : std_logic_vector(23 downto 0);
-
-    constant CLK_PERIOD : time := 10 ns;
-
+  -- simulation control
+  constant CLK_PERIOD : time := 10 ns;  -- 100 MHz
 begin
 
-    ----------------------------------------------------------------
-    -- Clock generation (100 MHz)
-    ----------------------------------------------------------------
-    clk_process : process
-    begin
-        Clk <= '0';
-        wait for CLK_PERIOD / 2;
-        Clk <= '1';
-        wait for CLK_PERIOD / 2;
-    end process;
+  -------------------------------------------------
+  -- Clock generation
+  -------------------------------------------------
+  clk_process : process
+  begin
+    Clk <= '0';
+    wait for CLK_PERIOD / 2;
+    Clk <= '1';
+    wait for CLK_PERIOD / 2;
+  end process;
 
-    ----------------------------------------------------------------
-    -- Device Under Test
-    ----------------------------------------------------------------
-    DUT : entity work.LFSR24
-        port map (
-            Clk    => Clk,
-            Reset  => Reset,
-            Enable => Enable,
-            Q      => Q
-        );
+  -------------------------------------------------
+  -- Instantiate DUT (Device Under Test)
+  -------------------------------------------------
+  DUT : entity work.LFSR24
+    port map (
+      Clk     => Clk,
+      Reset   => Reset,
+      Enable  => Enable,
+      evt_in  => evt_in,
+      evt_out => evt_out
+    );
 
-    ----------------------------------------------------------------
-    -- Stimulus
-    ----------------------------------------------------------------
-    stim_proc : process
-        variable L : line;
-    begin
-        -- Apply synchronous reset
-        Reset <= '1';
-        wait for 20 ns;
-        Reset <= '0';
+  -------------------------------------------------
+  -- Stimulus process
+  -------------------------------------------------
+  stim_proc : process
+  begin
+    -- Reset
+    Reset <= '1';
+    wait for 50 ns;
+    Reset <= '0';
 
-        -- Run for some cycles
-        for i in 0 to 50 loop
-            wait until rising_edge(Clk);
-            write(L, string'("Cycle "));
-            write(L, i, right, 4);
-            write(L, string'(": Q = "));
-            write(L, Q);
-            writeline(output, L);
-        end loop;
+    -- Generate a few event pulses to trigger random delays
+    wait for 100 ns;
+    evt_in <= '1'; wait for CLK_PERIOD;
+    evt_in <= '0'; wait for 3 ms;
 
-        report "LFSR24 test completed successfully." severity note;
-        wait;
-    end process;
+    evt_in <= '1'; wait for CLK_PERIOD;
+    evt_in <= '0'; wait for 3 ms;
 
+    evt_in <= '1'; wait for CLK_PERIOD;
+    evt_in <= '0'; wait for 5 ms;
+
+    wait;  -- end simulation
+  end process;
 end architecture;
