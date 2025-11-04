@@ -1,11 +1,35 @@
 \section{Comparação de abordagens}
 
 \subsection{Centralizado vs Distribuído}
-
+Na abordagem centralizada, todas as operações e decisões foram geridas por um único componente, o que simplificou o design e a implementação inicial. No entanto, esta abordagem levou a limitações de escalabilidade, especialmente em sistemas complexos.
+Na abordagem distribuída, o sistema foi dividido em múltiplos módulos independentes que comunicam entre si. Esta divisão permitiu uma maior flexibilidade, escalabilidade e resiliência, embora tenha introduzido desafios adicionais relacionados com a comunicação e sincronização entre os módulos.
 \subsection{Síncrono vs Assíncrono}
-
+Em regime síncrono, todos os componentes do sistema operaram em sincronia com um clock global, o que facilitou a coordenação e a previsibilidade do comportamento do sistema. No entanto, esta abordagem levou a ineficiências, especialmente quando há variações nas peças entre os tapetes.
+Já em regime assíncrono, os componentes operaram de forma independente, permitindo uma maior flexibilidade e adaptabilidade às variações no fluxo de peças. Esta abordagem, no entanto, introduziu complexidades adicionais na gestão da comunicação e na garantia da integridade dos dados transmitidos entre os módulos.
 \subsection{Impacto dos atrasos de comunicação} 
+Os atrasos de comunicação tiveram um impacto significativo no desempenho do sistema, especialmente nas abordagens distribuídas. Em sistemas síncronos, os atrasos podem levar a falhas na sincronização, resultando em perda de peças ou congestionamento. Em sistemas assíncronos, os atrasos podem causar inconsistências na comunicação entre os módulos, exigindo mecanismos adicionais para garantir a integridade dos dados.
+\subsection{Vantagens e Desvantagens}
 
-\subsection{Vantagens e desvantagens de cada abordagem}
+\begin{table}[ht]
+\centering
+\caption{Comparação: Centralizado vs Distribuído segundo modo e presença de atrasos}
+\label{tab:centralizado_distribuido}
+\begin{tabular}{@{}p{3.5cm} p{3.8cm} p{3.8cm} p{3.8cm} p{3.8cm}@{}}
+\hline
+\textbf{Abordagem} & \textbf{Síncrono} & \textbf{Assíncrono} & \textbf{Sem delay} & \textbf{Com delay} \\
+\hline
+Centralizado &
+Coordenação simples; comportamento previsível; fácil depuração. &
+Menos flexível; conflitos centralizados; maior complexidade de gestão. &
+Baixa latência global; desempenho ideal quando não há comunicação intensa. &
+Propenso a gargalos; perda de sincronismo; ponto único de falha evidente. \\[6pt]
+Distribuído &
+Requer mecanismos de sincronização entre nós; overhead de coordenação. &
+Boa adaptação a ritmos locais; maior modularidade e resiliência. &
+Eficiência local elevada; módulos podem operar com baixa latência interna. &
+Necessita de protocolos, buffers e tolerância a atrasos; maior complexidade de implementação. \\
+\hline
+\end{tabular}
+\end{table}
 
-\subsection{Análise de escalabilidade}  
+\subsection{Análise de escalabilidade}

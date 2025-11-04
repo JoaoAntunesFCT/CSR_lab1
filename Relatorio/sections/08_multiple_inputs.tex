@@ -4,7 +4,14 @@
 A modificação do modelo para múltiplas peças envolve a adaptação dos componentes do sistema para lidar com a entrada e saída de várias peças simultaneamente. Isso inclui a implementação de buffers de capacidade finita que permitem o armazenamento temporário das peças, garantindo que o sistema possa operar de forma eficiente mesmo quando há variações na taxa de entrada ou saída.
 %print modelo modificado
 \subsection{Interconexão dos componentes}
-%print interconexão
+
+A interconexão dos componentes no modelo modificado é realizada através de estados capazes de gerir a presença de múltiplos objetos. Garante-se assim o fluxo das peças de uma forma mais eficiente e que os buffers possam operar corretamente dentro das suas capacidades definidas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/petri_inter_components.png}
+    \caption{Rede de Petri - interconexão dos componentes}\label{fig:petri_inter_components}
+\end{figure}
 
 \subsection{Módulo de visualização do número de objetos}
 %print módulo de visualização
@@ -14,7 +21,7 @@ A modificação do modelo para múltiplas peças envolve a adaptação dos compo
 %Simulação temporal
 %Geração e análise do espaço de estados
 
-\subsection{Implementação centralizada em FPGA}
+\subsection{Implementação em FPGA}
 %print implementação FPGA
 
 \subsection{Análise de resultados}
