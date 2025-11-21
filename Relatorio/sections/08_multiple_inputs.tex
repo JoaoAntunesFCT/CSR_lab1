@@ -2,24 +2,31 @@
 
 \subsection{Modificação do modelo}
 A modificação do modelo para múltiplas peças envolve a adaptação dos componentes do sistema para lidar com a entrada e saída de várias peças simultaneamente. Isso inclui a implementação de buffers de capacidade finita que permitem o armazenamento temporário das peças, garantindo que o sistema possa operar de forma eficiente mesmo quando há variações na taxa de entrada ou saída.
-%print modelo modificado
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/petri_tapete_singular_part8.png}
+    \caption{Rede de Petri - modelo modificado para múltiplas peças (tapete único)}\label{fig:petri_inter_components}
+\end{figure}
+
 \subsection{Interconexão dos componentes}
 
 A interconexão dos componentes no modelo modificado é realizada através de estados capazes de gerir a presença de múltiplos objetos. Garante-se assim o fluxo das peças de uma forma mais eficiente e que os buffers possam operar corretamente dentro das suas capacidades definidas.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/petri_inter_components.png}
-    \caption{Rede de Petri - interconexão dos componentes}\label{fig:petri_inter_components}
+    \includegraphics[width=0.8\textwidth]{img/petri_part8.png}
+    \caption{Rede de Petri - interconexão dos diferentes tapetes}\label{fig:petri_inter_components}
 \end{figure}
 
 \subsection{Módulo de visualização do número de objetos}
 %print módulo de visualização
 
-\subsection{Simulação e validação}
-%Simulação com token-player
-%Simulação temporal
-%Geração e análise do espaço de estados
+\subsection{Simulação e Análise}
+
+\subsubsection{Simulação com token-player}
+
+\subsubsection{Geração e análise do espaço de estados}
 
 \subsection{Implementação em FPGA}
 %print implementação FPGA
