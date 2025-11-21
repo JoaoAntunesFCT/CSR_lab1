@@ -1,10 +1,23 @@
 \section{Implementação em FPGA}
+Nesta secção, detalha-se o processo de implementação do sistema em uma FPGA (Field-Programmable Gate Array). 
 
 \subsection{Geração do código VHDL}
-%print código VHDL
+O código VHDL encontra-se descrito na figura abaixo.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/vhdl_code_fpga.png}
+    \caption{Código VHDL gerado para implementação em FPGA}\label{fig:vhdl_code_fpga}
+\end{figure}
+Este código foi gerado automaticamente a partir do modelo de Rede de Petri utilizando a framework IOPT-Tools, que traduz as especificações do modelo para uma descrição em VHDL adequada para síntese em FPGA.
 
 \subsection{Configuração de entradas/saídas}
-%print entradas e saídas
+Para este projeto, foram configuradas as seguintes entradas e saídas na FPGA:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/fpga_io_configuration.png}
+    \caption{Configuração de entradas e saídas na FPGA}\label{fig:fpga_io_configuration}
+\end{figure}
 
 \subsection{Testes experimentais}
 %comparar resultados

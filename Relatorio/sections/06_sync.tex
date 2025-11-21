@@ -16,7 +16,7 @@ A decomposição usando SPLIT (Synchronous Parallel Logic Interconnect Technolog
 A modelação com canais síncronos envolve a definição de canais de comunicação que operam em sincronia, permitindo a troca de informações entre os módulos de forma coordenada. Essa abordagem é fundamental para garantir a consistência e a previsibilidade no comportamento do sistema. Esta modelação encontra-se representada na figura abaixo.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/06_sync_model.png}
+    \includegraphics[width=0.8\textwidth]{img/petri_sync_channels.png}
     \caption{Modelo com canais síncronos entre os módulos.}
     \label{fig:synchronous_model}
 \end{figure}
@@ -25,21 +25,39 @@ A modelação com canais síncronos envolve a definição de canais de comunica�
 A modelação com canais assíncronos envolve a definição de canais de comunicação que operam de forma independente, permitindo a troca de informações entre os módulos sem a necessidade de sincronização. Essa abordagem é útil em sistemas onde a latência e a largura de banda são variáveis, proporcionando maior flexibilidade na comunicação. Este modelo está descrito na figura abaixo.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/06_async_model.png}
+    \includegraphics[width=0.8\textwidth]{img/petri_async_channels.png}
     \caption{Modelo com canais assíncronos entre os módulos.}
     \label{fig:asynchronous_model}
 \end{figure}
 
 \subsection{Decomposição GALS}
-A decomposição GALS (Globally Asynchronous, Locally Synchronous) envolve a criação de três controladores separados que operam de forma independente, permitindo uma maior flexibilidade e escalabilidade no sistema. Essa abordagem facilita a integração de diferentes módulos e a adaptação a variações nas condições de operação. A decomposição GALS para esta aplicação pode ser visualizada na figura abaixo.
+A decomposição GALS (Globally Asynchronous, Locally Synchronous) envolve a criação de três controladores separados que operam de forma independente, permitindo uma maior flexibilidade e escalabilidade no sistema. Essa abordagem facilita a integração de diferentes módulos e a adaptação a variações nas condições de operação. A decomposição GALS para esta aplicação pode ser visualizada nas figuras abaixo.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/06_gals_decomposition.png}
-    \caption{Decomposição GALS do sistema em controladores independentes.}
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/petri_event_controler_1.png}
+        \caption{Tapete 1 com controlo por eventos}
+        \label{fig:gals_decomposition_1}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/petri_event_controler_2.png}
+        \caption{Tapete 2 com controlo por eventos}
+        \label{fig:gals_decomposition_2}
+    \end{subfigure}\hfill
+    \begin{subfigure}[b]{0.32\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/petri_event_controler_3.png}
+        \caption{Tapete 3 com controlo por eventos}
+        \label{fig:gals_decomposition_3}
+    \end{subfigure}
+    \caption{Decomposição GALS — Tapetes 1–3 com controlo por eventos}
     \label{fig:gals_decomposition}
 \end{figure}
 
 \subsection{Simulação e Análise}
-%Simulação com token-player
-%Simulação temporal
-%Geração e análise do espaço de estados
+
+\subsubsection{Simulação com token-player}
+
+\subsubsection{Geração e análise do espaço de estados}

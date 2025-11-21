@@ -14,6 +14,8 @@ Os atrasos de comunicação tiveram um impacto significativo no desempenho do si
 \centering
 \caption{Comparação: Centralizado vs Distribuído segundo modo e presença de atrasos}
 \label{tab:centralizado_distribuido}
+\small
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}p{3.5cm} p{3.8cm} p{3.8cm} p{3.8cm} p{3.8cm}@{}}
 \hline
 \textbf{Abordagem} & \textbf{Síncrono} & \textbf{Assíncrono} & \textbf{Sem delay} & \textbf{Com delay} \\
@@ -29,7 +31,8 @@ Boa adaptação a ritmos locais; maior modularidade e resiliência. &
 Eficiência local elevada; módulos podem operar com baixa latência interna. &
 Necessita de protocolos, buffers e tolerância a atrasos; maior complexidade de implementação. \\
 \hline
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
 \subsection{Análise de escalabilidade}
