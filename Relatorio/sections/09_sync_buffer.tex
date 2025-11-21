@@ -1,7 +1,7 @@
 \section{Distribuído com Buffers (Síncrono)}
 
 \subsection{Aplicação síncrona ao buffer de capacidade finita}
-A aplicação síncrona ao buffer de capacidade finita envolve a utilização de canais de comunicação síncronos para gerir o fluxo de dados entre os diferentes módulos do sistema. Esta abordagem permite que o buffer opere de forma eficiente, garantindo que as peças sejam armazenadas e transferidas de acordo com um clock global, o que facilita a coordenação entre os componentes e minimiza o risco de perda ou congestionamento de dados.
+A aplicação síncrona ao buffer de capacidade finita envolve a utilização de canais síncronos para gerir o fluxo de dados entre os diferentes módulos do sistema. Esta abordagem permite que o buffer opere de forma eficiente, garantindo que as peças sejam armazenadas e transferidas de acordo com um clock global, o que facilita a coordenação entre os componentes (minimizando a chance de perda de peças).
 \subsection{Decomposição e implementação distribuída}
 A decomposição e implementação distribuída do sistema com buffers de capacidade finita envolve a divisão do sistema em módulos independentes que se comunicam através de canais síncronos. Cada módulo é responsável por uma parte específica do processamento, como a gestão do buffer, a entrada e saída de peças, e o controlo dos atuadores. Esta abordagem permite uma maior flexibilidade e escalabilidade, facilitando a adaptação do sistema a diferentes requisitos operacionais.
 
