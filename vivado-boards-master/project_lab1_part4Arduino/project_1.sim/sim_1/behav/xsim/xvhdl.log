@@ -1,4 +1,0 @@
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab3 - Part42/CSR - Lab3 - Part42.srcs/sources_1/new/controllerVHDL.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'CSR_Lab3_Part4'
-INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab3 - Part42/CSR - Lab3 - Part42.srcs/sim_1/new/sim.vhd" into library xil_defaultlib
-INFO: [VRFC 10-3107] analyzing entity 'tb_CSR_Lab3_Part4'
