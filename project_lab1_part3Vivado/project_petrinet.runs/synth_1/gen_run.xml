@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1760463244" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/CSR_Lab3_Part4.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1764095256" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/CSR_Lab3_Part4.dcp">
+  <File Type="PA-TCL" Name="CSR_Lab3_Part4.tcl"/>
   <File Type="REPORTS-TCL" Name="CSR_Lab3_Part4_reports.tcl"/>
+  <File Type="RDS-RDS" Name="CSR_Lab3_Part4.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="CSR_Lab3_Part4_drc_synth.rpt"/>
   <File Type="RDS-UTIL" Name="CSR_Lab3_Part4_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="CSR_Lab3_Part4_utilization_synth.pb"/>
-  <File Type="PA-TCL" Name="CSR_Lab3_Part4.tcl"/>
-  <File Type="RDS-RDS" Name="CSR_Lab3_Part4.vds"/>
   <File Type="RDS-DCP" Name="CSR_Lab3_Part4.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="CSR_Lab3_Part4_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="CSR_Lab3_Part4_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/CSR - Lab3 - Part4/CSR - Lab3 - Part4_controller.vhdl">

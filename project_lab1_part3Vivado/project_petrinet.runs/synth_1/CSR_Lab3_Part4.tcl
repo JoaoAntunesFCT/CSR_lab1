@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.runs/synth_1/CSR_Lab3_Part4.tcl"
+  variable script "C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.runs/synth_1/CSR_Lab3_Part4.tcl"
   variable category "vivado_synth"
 }
 
@@ -56,25 +56,24 @@ if {$::dispatch::connected} {
 }
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 3
 set_param general.usePosixSpawnForFork 1
-set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.cache/wt} [current_project]
-set_property parent.project_path {C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.xpr} [current_project]
+set_property webtalk.parent_dir {C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.xpr} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
+set_property board_part_repo_paths {C:/Users/julio/AppData/Roaming/Xilinx/Vivado/2025.1/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:nexys-a7-100t:part0:1.3 [current_project]
-set_property ip_output_repo {c:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.cache/ip} [current_project]
+set_property ip_output_repo {c:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib {{C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.srcs/sources_1/imports/CSR - Lab3 - Part4/CSR - Lab3 - Part4_controller.vhdl}}
+read_vhdl -library xil_defaultlib {{C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.srcs/sources_1/imports/CSR - Lab3 - Part4/CSR - Lab3 - Part4_controller.vhdl}}
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -84,12 +83,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc {{C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.srcs/constrs_1/new/constraints.xdc}}
-set_property used_in_implementation false [get_files {{C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.srcs/constrs_1/new/constraints.xdc}}]
+read_xdc {{C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.srcs/constrs_1/new/constraints.xdc}}
+set_property used_in_implementation false [get_files {{C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.srcs/constrs_1/new/constraints.xdc}}]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental {C:/Users/Renedito/Documents/Faculdade/5 ano/CSR/CSR - Lab 3 - Part4/CSR - Lab 3 - Part4.srcs/utils_1/imports/synth_1/CSR_Lab3_Part4.dcp}
+read_checkpoint -auto_incremental -incremental {C:/Users/julio/OneDrive - FCT NOVA/Mestrado/5 ano/1º semestre/CSR/lab1/CSR_lab1/project_lab1_part3Vivado/project_petrinet.srcs/utils_1/imports/synth_1/CSR_Lab3_Part4.dcp}
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
