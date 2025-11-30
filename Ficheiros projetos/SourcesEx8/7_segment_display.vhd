@@ -1,14 +1,17 @@
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
-use IEEE.STD_LOGIC_UNSIGNED.ALL; -- Required for basic arithmetic operations
+use IEEE.NUMERIC_STD.ALL;
 
 entity Segment_Display is
     port(
         Clk     : in  std_logic;
         Reset   : in  std_logic;
-        Data_In : in  std_logic_vector(3 downto 0); -- 4 bits of data (0-9, A-F)
-        
-        -- Segment Cathodes (Commonly active-low for common-anode displays)
+
+        marks_43    : in integer range 0 to 3;
+        marks_89_43 : in integer range 0 to 3;
+        marks_90_43 : in integer range 0 to 3;
+
         CA : out std_logic;
         CB : out std_logic;
         CC : out std_logic;
@@ -16,91 +19,92 @@ entity Segment_Display is
         CE : out std_logic;
         CF : out std_logic;
         CG : out std_logic;
-        DP : out std_logic; -- Decimal Point
-
-        -- Anode Selectors (Active-low, drives which segment is lit)
-        AN : out std_logic_vector(7 downto 0) 
+        DP : out std_logic;
+        AN : out std_logic_vector(7 downto 0)
     );
 end entity Segment_Display;
 
-architecture Behavioral of Segment_Display is
-    
-    -- Internal signal to hold the currently decoded 7-segment pattern (active low)
-    signal seg_data : std_logic_vector(7 downto 0); -- segments + DP
 
-    -- We are driving a constant Data_In value, so we only need to decode it once.
-    -- However, we must continuously multiplex the anodes.
-    
-    -- A simple clock divider for multiplexing (e.g., 1 KHz rate)
+architecture Behavioral of Segment_Display is
+
+    signal seg_data   : std_logic_vector(6 downto 0);
+    signal digit_val  : std_logic_vector(3 downto 0);
+
+    signal Display_Value : std_logic_vector(11 downto 0);
+
     constant CLK_DIV_BITS : integer := 16;
     signal clk_div_cnt : std_logic_vector(CLK_DIV_BITS-1 downto 0) := (others => '0');
-    
-    -- Anode control counter (3 bits needed to cycle through 8 displays)
-    signal anode_cnt : std_logic_vector(2 downto 0) := (others => '0');
+    signal anode_cnt   : std_logic_vector(1 downto 0) := (others => '0'); -- 3 digits
 
 begin
 
-    -- 1. Decode Data_In to 7-Segment Cathodes (Active Low)
-    -- This process converts the 4-bit Data_In into the 7-segment pattern.
-    with Data_In select
-        seg_data <= 
-            "10000000" when "0000", -- 0
-            "11110010" when "0001", -- 1
-            "10010001" when "0010", -- 2
-            "10110000" when "0011", -- 3
-            "11100010" when "0100", -- 4
-            "10100100" when "0101", -- 5
-            "10000100" when "0110", -- 6
-            "11111000" when "0111", -- 7
-            "10000000" when "1000", -- 8
-            "10100000" when "1001", -- 9
-            "10001000" when "1010", -- A (The arbitrary "1010" input value)
-            "10000011" when "1011", -- B
-            "10000110" when "1100", -- C
-            "10010000" when "1101", -- D
-            "10000110" when "1110", -- E
-            "10001110" when "1111", -- F
-            "11111111" when others; -- Blank default
-            
-    -- Assign decoded pattern to segment outputs (CA-CG) and DP
-    CA <= seg_data(7); -- DP
-    CB <= seg_data(6); -- CG
-    CC <= seg_data(5); -- CF
-    CD <= seg_data(4); -- CE
-    CE <= seg_data(3); -- CD
-    CF <= seg_data(2); -- CC
-    CG <= seg_data(1); -- CB
-    DP <= seg_data(0); -- CA
-    
-    
-    -- 2. Multiplexing Control
-    process(Clk)
+    -- Compute complementary values for the display
+    Display_Value(3 downto 0)   <= std_logic_vector(to_unsigned(3 - marks_43, 4));
+    Display_Value(7 downto 4)   <= std_logic_vector(to_unsigned(3 - marks_89_43, 4));
+    Display_Value(11 downto 8)  <= std_logic_vector(to_unsigned(3 - marks_90_43, 4));
+
+    ----------------------------------------------------------------
+    -- Clock divider for multiplexing
+    ----------------------------------------------------------------
+    process(Clk, Reset)
     begin
-        if rising_edge(Clk) then
-            if Reset = '1' then
+        if Reset = '1' then
+            clk_div_cnt <= (others => '0');
+            anode_cnt <= (others => '0');
+        elsif rising_edge(Clk) then
+            if clk_div_cnt = (clk_div_cnt'range => '1') then
                 clk_div_cnt <= (others => '0');
-                anode_cnt <= (others => '0');
+                anode_cnt <= anode_cnt + 1;
             else
-                -- Divide clock down to a multiplexing rate (e.g., ~1KHz)
-                if clk_div_cnt = (clk_div_cnt'range => '1') then -- Max count for 16 bits
-                    clk_div_cnt <= (others => '0');
-                    -- Cycle through anodes every time the slow clock ticks
-                    anode_cnt <= anode_cnt + 1;
-                else
-                    clk_div_cnt <= clk_div_cnt + 1;
-                end if;
+                clk_div_cnt <= clk_div_cnt + 1;
             end if;
         end if;
     end process;
-    
-    -- 3. Anode Output Drive
-    -- Based on anode_cnt, activate only one anode (active low, '0')
-    -- Since the displays are meant to show the same value, we just light up
-    -- the single display corresponding to the lowest bit (AN[0]).
-    AN <= (others => '1'); -- Deactivate all anodes by default (active high)
-    
-    -- Assign anode_cnt value to turn ON one specific display segment.
-    -- Since the arbitrary number requires only one segment, we'll permanently enable AN(0).
-    AN(0) <= '0';
-    
+
+    ----------------------------------------------------------------
+    -- Select digit to display based on anode count
+    ----------------------------------------------------------------
+    with anode_cnt select
+        digit_val <= Display_Value(3 downto 0)   when "00",
+                     Display_Value(7 downto 4)   when "01",
+                     Display_Value(11 downto 8)  when "10",
+                     "0000"                      when others;
+
+    ----------------------------------------------------------------
+    -- 7-segment decoder (active low)
+    ----------------------------------------------------------------
+    with digit_val select
+        seg_data <=
+            "0000001" when "0000", -- 0
+            "1001111" when "0001", -- 1
+            "0010010" when "0010", -- 2
+            "0000110" when "0011", -- 3
+            "1001100" when "0100", -- 4
+            "0100100" when "0101", -- 5
+            "0100000" when "0110", -- 6
+            "0001111" when "0111", -- 7
+            "0000000" when "1000", -- 8
+            "0000100" when "1001", -- 9
+            "1111111" when others; -- blank
+
+    ----------------------------------------------------------------
+    -- Map segments
+    ----------------------------------------------------------------
+    CA <= seg_data(6);
+    CB <= seg_data(5);
+    CC <= seg_data(4);
+    CD <= seg_data(3);
+    CE <= seg_data(2);
+    CF <= seg_data(1);
+    CG <= seg_data(0);
+    DP <= '1'; -- decimal point off
+
+    ----------------------------------------------------------------
+    -- Multiplexed anode output (active low)
+    ----------------------------------------------------------------
+    AN <= "11111111"; -- default all off
+    AN(0) <= '0' when anode_cnt = "00" else '1';
+    AN(1) <= '0' when anode_cnt = "01" else '1';
+    AN(2) <= '0' when anode_cnt = "10" else '1';
+
 end architecture Behavioral;
