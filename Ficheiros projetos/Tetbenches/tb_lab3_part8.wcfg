@@ -12,13 +12,13 @@
    <zoom_setting>
       <ZoomStartTime time="0.000 ns"></ZoomStartTime>
       <ZoomEndTime time="1,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="1,000.000 ns"></Cursor1Time>
+      <Cursor1Time time="350.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+      <ValueColumnWidth column_width="116"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="23" />
+   <WVObjectSize size="31" />
    <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/Clk" type="logic">
       <obj_property name="ElementShortName">Clk</obj_property>
       <obj_property name="ObjectShortName">Clk</obj_property>
@@ -59,6 +59,10 @@
       <obj_property name="ElementShortName">in1</obj_property>
       <obj_property name="ObjectShortName">in1</obj_property>
    </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/in2" type="logic">
+      <obj_property name="ElementShortName">in2</obj_property>
+      <obj_property name="ObjectShortName">in2</obj_property>
+   </wvobject>
    <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/movei" type="logic">
       <obj_property name="ElementShortName">movei</obj_property>
       <obj_property name="ObjectShortName">movei</obj_property>
@@ -82,6 +86,34 @@
    <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/Bot3" type="logic">
       <obj_property name="ElementShortName">Bot3</obj_property>
       <obj_property name="ObjectShortName">Bot3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/event_outi" type="logic">
+      <obj_property name="ElementShortName">event_outi</obj_property>
+      <obj_property name="ObjectShortName">event_outi</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/event_in1" type="logic">
+      <obj_property name="ElementShortName">event_in1</obj_property>
+      <obj_property name="ObjectShortName">event_in1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/event_in2" type="logic">
+      <obj_property name="ElementShortName">event_in2</obj_property>
+      <obj_property name="ObjectShortName">event_in2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/p_6" type="other">
+      <obj_property name="ElementShortName">p_6</obj_property>
+      <obj_property name="ObjectShortName">p_6</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/p_8" type="other">
+      <obj_property name="ElementShortName">p_8</obj_property>
+      <obj_property name="ObjectShortName">p_8</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/p_89_43" type="other">
+      <obj_property name="ElementShortName">p_89_43</obj_property>
+      <obj_property name="ObjectShortName">p_89_43</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/DUT/U_CTRL/p_89_46" type="other">
+      <obj_property name="ElementShortName">p_89_46</obj_property>
+      <obj_property name="ObjectShortName">p_89_46</obj_property>
    </wvobject>
    <wvobject fp_name="/tb_CSR_Lab_3_Part8_main/CLK_PERIOD" type="other">
       <obj_property name="ElementShortName">CLK_PERIOD</obj_property>
