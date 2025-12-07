@@ -23,7 +23,6 @@ As redes de Petri constituem uma ferramenta formal de modelação adequada para 
 \end{itemize}
 
 \subsection{Execução síncrona vs. GALS}
-%Paradigma de execução síncrona vs. GALS (Globally Asynchronous Locally Synchronous)
 
 Em contexto síncrono, todos os componentes operam com um relógio global comum. Oferece simplicidade de design e determinismo, mas apresenta limitações de escalabilidade, consumo energético elevado (relógio sempre ativo) e dificuldades na distribuição do sinal de relógio (clock skew) em sistemas grandes.
 
@@ -32,7 +31,6 @@ Já num paradigma GALS, este divide o sistema em domínios síncronos locais que
 Vantagens do GALS incluem escalabilidade, modularidade, eficiência energética e tolerância a falhas. As desvantagens são a maior complexidade de interface, latência variável na comunicação e necessidade de tratamento de metastabilidade nas fronteiras entre domínios.
 
 \subsection{Implementação em FPGA e Arduino}
-%Conceitos de implementação em FPGA e Arduino
 
 Utilizar-se-á uma \textbf{FPGA (Field-Programmable Gate Array)}. A descrição do sistema é feita em VHDL, uma linguagem de descrição de hardware que permite especificar comportamento concorrente. Recorrer-se-á também a um microcontrolador \textbf{Arduino}.
 
