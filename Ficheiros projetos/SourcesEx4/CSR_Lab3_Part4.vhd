@@ -37,7 +37,7 @@ entity CSR_Lab_3_Part4_main is
         movei_3  : out STD_LOGIC;
         Bot1     : out STD_LOGIC;
         Bot2     : out STD_LOGIC;
-        Bot3     : out STD_LOGIC;
+        Bot3     : out STD_LOGIC;   
 
         Enable   : in  STD_LOGIC;
         Reset    : in  STD_LOGIC

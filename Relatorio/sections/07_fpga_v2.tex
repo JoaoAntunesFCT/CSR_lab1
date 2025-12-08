@@ -1,19 +1,93 @@
-\section{Implementação em FPGA - Distribuição Síncrona}
+\section{Problema VI - Implementação em FPGA com distribuição Síncrona}
+
+Neste problema é nos pedidido á semelhança do problema III para implementar o sistema desenvolvido no dispositivo FPGA, mas desta vez com o controlador Distribuído.
 
 \subsection{Geração do código VHDL}
-O código VHDL encontra-se descrito na figura abaixo.
+%\begin{figure}[H]
+   % \centering
+   %\includegraphics[width=0.8\textwidth]{img/vhdl_codigo_lfsr.png}
+ %   \caption{Código VHDL gerado para implementação em FPGA com LFSR}\label{fig:vhdl_code_fpga_lfsr}
+%\end{figure}
+Começamos por gerar o código VHDL do sistema a partir do modelo de Rede de Petri utilizando a framework IOPT-Tools, que traduz as especificações do modelo para uma descrição em VHDL adequada para síntese em FPGA.
+
+\vspace{1em}
+
+Neste momento o sistema é composto por três módulos independentes que comunicam entre si através de canais síncronos, conforme a decomposição SPLIT apresentada anteriormente.
+
+\vspace{1em}
+
+Criando um ficheiro main, foi possível ligar todos estes compoenentes corretamente.
+
+\subsection{Simulação no Vivado}
+
+No ambiente do vivado, utilizamos o ficheiro de simulação desenvolvido previamente para testar o comportamente dos sistema distribuído conforme na figura abaixo:
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/vhdl_codigo_lfsr.png}
-    \caption{Código VHDL gerado para implementação em FPGA com LFSR}\label{fig:vhdl_code_fpga_lfsr}
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part6.png}
+    \caption{Simulação do sistema distribuído em FPGA com canais síncronos}\label{fig:vivado_simulation_fpga_sync}
 \end{figure}
-Este código foi gerado automaticamente a partir do modelo de Rede de Petri utilizando a framework IOPT-Tools, que traduz as especificações do modelo para uma descrição em VHDL adequada para síntese em FPGA.
+
+Atendendo á defenição para as saídas do sistema em~\ref{lst:sequence_signals} podemos observar o correto funcionamento do sistema distribuído implementado na FPGA para o tratamento de uma caixa.
+
+\newpage
+
+\subsection{Testes Experimentais}
+Os testes experimentais foram realizados para validar o funcionamento do sistema implementado na FPGA. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
+
+Neste link tem acesso ao vídeo dos testes experimentais realizados na FPGA:
+
+\vspace{1em}
+
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EbCBCypgsytKpl_b_LGAicUBknUJlGIr7qVPtiyCcbbboQ?e=hTIkwX}{Vídeo - Testes experimentais na FPGA (com LFSR)}
+
+\vspace{1em}
+
+A análise revelou que o desempenho da FPGA é consistente com as previsões do modelo, demonstrando a eficácia da implementação e a precisão do sistema projetado.
+
+\newpage
+
+\section{Problema VII - Implementação em FPGA com distribuição Síncrona com atrasos entre eventos}
+
+Tal como no problema VI, neste problema é nos pedidido á semelhança do problema IV para implementar o sistema desenvolvido no dispositivo FPGA, mas desta vez com o controlador Distribuído e com a inclusão de atrasos entre eventos utilizando um LFSR.
+
+\vspace{1em}
+
+Visto que a implementação é análoga á do problema VI, apenas serão descritos os aspetos específicos relacionados com a implementação do LFSR e a gestão dos atrasos no sistema.
 
 \subsection{Implementação do LFSR}
 O LFSR (Linear Feedback Shift Register) é um componente essencial para a geração de números pseudoaleatórios no sistema. A sua implementação em VHDL envolve a definição dos registos de shift (deslocamento) e das funções de feedback necessárias para garantir a pseudo-aleatoriedade dos valores gerados.
-Usando como referência o documento fornecido pelos docentes, procedeu-se à implementação do LFSR com as características desejadas.
+Usando como referência o documento fornecido pelos docentes [1] , procedeu-se à implementação do LFSR com as características desejadas.
 
-Esta secção detalha o processo de implementação do LFSR, incluindo a configuração dos seus parâmetros e a integração com os restantes componentes do sistema.
+\vspace{1em}
+
+Abaixo está um testbench simples para validar o funcionamento do LFSR implementado, nele colocamos 3 pulsos á entrada e observamos a sua saída. No testbnch a variável r[23:0] é o valor presente no LFSR num dado instante, isto traduz-se no número de ciclos de clock que demorará o atraso:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part7_LFSR1.png}
+    \caption{Simulação do LFSR implementado em VHDL}\label{fig:vivado_simulation_lfsr}
+\end{figure}
+
+Na figura~\ref{fig:vivado_simulation_lfsr2} Podemos ver que após ser aplicado um sinal de entrada no LFSR foi possível observar um sina de saída apôs aproximadamente $10us$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part7_LFSR2.png}
+    \caption{Simulação do LFSR implementado em VHDL ampliado no primeiro pulso}\label{fig:vivado_simulation_lfsr2}
+\end{figure}
+
+\newpage
+
+De seguida para o segundo sinal de entrada, podemos observar na figura~\ref{fig:vivado_simulation_lfsr3} que o sinal de saída é gerado após aproximadamente $147ms$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part7_LFSR3.png}
+    \caption{Simulação do LFSR implementado em VHDL ampliado no segundo pulso}\label{fig:vivado_simulation_lfsr3}
+\end{figure}
+
+No caso do ultimo sinal de entrada, este não aparece na saída do LFSR visto que o dispositivo não tem memória e este sinal foi ativado enquando ele estava no processo de contagem.
 
 \subsubsection{Gestão dos atrasos}
 A gestão dos atrasos no sistema é crucial para garantir a sincronização adequada entre os diferentes componentes. No caso do LFSR, os atrasos são implementados para assegurar que os valores gerados sejam utilizados de forma eficiente e sincronizada com o restante sistema.
@@ -22,8 +96,14 @@ A implementação dos atrasos é feita através de registos e sinais que control
 \subsection{Testes Experimentais}
 Os testes experimentais foram realizados para validar o funcionamento do sistema implementado na FPGA. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
 
+\vspace{1em}
+
 Neste link tem acesso ao vídeo dos testes experimentais realizados na FPGA com LFSR:
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/Ec1b2a4d3f5Fq0e8Z7k9j8cB7J6K8L9N4EQRcoB3EP6g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ZhfX5e}{Vídeo - Testes experimentais na FPGA (com LFSR)}
+\vspace{1em}
+
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EX9z6gGr7RVHrWoCom8IBLcBAVT6YzrEATOdDugrQtE6oQ?e=KXuH2R}{Vídeo - Testes experimentais na FPGA (com LFSR) - Problema VII}
+
+\vspace{1em}
 
 A análise revelou que o desempenho da FPGA é consistente com as previsões do modelo, demonstrando a eficácia da implementação e a precisão do sistema projetado.

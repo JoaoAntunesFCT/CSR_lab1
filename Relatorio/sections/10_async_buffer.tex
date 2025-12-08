@@ -1,25 +1,26 @@
-\section{Distribuído com Buffers (Assíncrono)}
+\section{Problema X - Distribuído com Buffers (Síncrono) e atraso entre eventos}
 
-\subsection{Aplicação assíncrona ao buffer de capacidade finita}
-A aplicação assíncrona ao buffer de capacidade finita envolve a utilização de canais assíncronos para gerir o fluxo de dados entre os diferentes módulos do sistema. Esta abordagem permite que o buffer opere de forma eficiente, garantindo que as peças sejam armazenadas e transferidas sem a necessidade de um clock global, o que facilita a coordenação entre os componentes.
+Neste problema foi nos pedido que pegassemos no sistema distribuído com buffers síncronos do problema IX e adicionássemos um atraso entre eventos, para isso foi utilizado um LFSR (Linear Feedback Shift Register) que gera números pseudoaleatórios que são usados para introduzir atrasos variáveis entre os eventos do sistema.
 
-Segue na figura abaixo a representação do modelo de rede de Petri com buffers assíncronos.
+\vspace{1em}
+
+Reunindo tanto os controladores em VHDL como o código relacionado com o LFSR, somente foi necessário construir um ficheiro main que interligasse estes compontentes para realizar esta parte do trabalho. 
+
+\subsection{Simulação no Vivado}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/petri_async_channels.png}
-    \caption{Rede de Petri - modelo assíncrono com buffers de capacidade finita}\label{fig:petri_async_buffer}
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part10.png}
+    \caption{Simulação do sistema distribuído em FPGA com buffers assíncronos e atraso entre eventos}\label{fig:vivado_simulation_fpga_async_buffers_delay}
 \end{figure}
 
+Nesta simulação podemos observar o correto funcionamento do sistema conforme a definição para as saídas do sistema em~\ref{lst:sequence_signals}.
+
 \subsection{Testes Experimentais}
-Os testes experimentais foram realizados para validar o funcionamento do sistema implementado com buffers assíncronos. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
 
-Neste link tem acesso ao vídeo dos testes experimentais realizados com buffers assíncronos:
+Os testes experimentais foram realizados para validar o funcionamento do sistema implementado com buffers assíncronos com delays entre eventos. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EWEOa2jxXRNFmaCiO5c6iG4BP21vyCbQSKYiZQ8HcoeOrg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=j6h8N4}{Vídeo - Testes experimentais com buffers assíncronos}
+Neste link tem acesso ao vídeo dos testes experimentais realizados:
 
-Os resultados dos testes demonstraram que o sistema com buffers assíncronos é capaz de operar de forma eficaz, mantendo a integridade dos dados e garantindo a sincronização adequada entre os diferentes módulos, mesmo na ausência de um clock global.
-
-\subsection{Análise comparativa}
-%comparar os resultados com async e sync
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EW3B7qsgiE9EoFSgvNr2E5cBuWe9ch2cr2h4zGIc-n_x2A?e=HQHzfc}{Vídeo - Testes experimentais - Problema X}
 
