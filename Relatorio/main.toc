@@ -59,5 +59,8 @@
 \contentsline {subsection}{\numberline {13.1}Centralizado vs Distribuído}{30}{subsection.13.1}%
 \contentsline {subsection}{\numberline {13.2}Síncrono vs Assíncrono}{30}{subsection.13.2}%
 \contentsline {subsection}{\numberline {13.3}Impacto dos atrasos de comunicação}{30}{subsection.13.3}%
+\contentsline {subsection}{\numberline {13.4}Vantagens e Desvantagens}{30}{subsection.13.4}%
 \contentsline {section}{\numberline {14}Conclusões}{31}{section.14}%
+\contentsline {subsection}{\numberline {14.1}Resultados alcançados}{31}{subsection.14.1}%
+\contentsline {subsection}{\numberline {14.2}Dificuldades encontradas e soluções adotadas}{31}{subsection.14.2}%
 \contentsfinish 
