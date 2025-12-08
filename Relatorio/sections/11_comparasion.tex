@@ -8,32 +8,4 @@ Em regime síncrono, todos os componentes do sistema operaram em sincronia com u
 Já em regime assíncrono, os componentes operaram de forma independente, permitindo uma maior flexibilidade e adaptabilidade às variações no fluxo de peças. Esta abordagem, no entanto, introduziu complexidades adicionais na gestão da comunicação e na garantia da integridade dos dados transmitidos entre os módulos.
 \subsection{Impacto dos atrasos de comunicação} 
 Os atrasos de comunicação tiveram um impacto significativo no desempenho do sistema, especialmente nas abordagens distribuídas. Em sistemas síncronos, os atrasos podem levar a falhas na sincronização, resultando em perda de peças ou congestionamento. Em sistemas assíncronos, os atrasos podem causar inconsistências na comunicação entre os módulos, exigindo mecanismos adicionais para garantir a integridade dos dados.
-<<<<<<< HEAD
-\subsection{Vantagens e Desvantagens}
 
-\begin{table}[ht]
-\centering
-\caption{Comparação: Centralizado vs Distribuído segundo modo e presença de atrasos}
-\label{tab:centralizado_distribuido}
-\small
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}p{3.5cm} p{3.8cm} p{3.8cm} p{3.8cm} p{3.8cm}@{}}
-\hline
-\textbf{Abordagem} & \textbf{Síncrono} & \textbf{Assíncrono} & \textbf{Sem delay} & \textbf{Com delay} \\
-\hline
-Centralizado &
-Coordenação simples; comportamento previsível; fácil depuração. &
-Menos flexível; conflitos centralizados; maior complexidade de gestão. &
-Baixa latência global; desempenho ideal quando não há comunicação intensa. &
-Propenso a gargalos; perda de sincronismo; ponto único de falha evidente. \\[6pt]
-Distribuído &
-Requer mecanismos de sincronização entre nós; overhead de coordenação. &
-Boa adaptação a ritmos locais; maior modularidade e resiliência. &
-Eficiência local elevada; módulos podem operar com baixa latência interna. &
-Necessita de protocolos, buffers e tolerância a atrasos; maior complexidade de implementação. \\
-\hline
-\end{tabular}%
-}
-\end{table}
-=======
->>>>>>> 96f74b8e5dbddf335b06dec00f9986cd8c0c80f2

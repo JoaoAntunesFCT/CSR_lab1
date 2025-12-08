@@ -16,7 +16,7 @@ Neste momento o sistema é composto por três módulos independentes que comunic
 
 \vspace{1em}
 
-Criando um ficheiro main, foi possível ligar todos estes compoenentes corretamente.
+Criando um ficheiro main, foi possível ligar todos estes componentes corretamente.
 
 \subsection{Simulação no Vivado}
 
@@ -61,7 +61,7 @@ Usando como referência o documento fornecido pelos docentes [1] , procedeu-se �
 
 \vspace{1em}
 
-Abaixo está um testbench simples para validar o funcionamento do LFSR implementado, nele colocamos 3 pulsos á entrada e observamos a sua saída. No testbnch a variável r[23:0] é o valor presente no LFSR num dado instante, isto traduz-se no número de ciclos de clock que demorará o atraso:
+Abaixo está um testbench simples para validar o funcionamento do LFSR implementado, nele colocamos 3 pulsos á entrada e observamos a sua saída. No testbench a variável r[23:0] é o valor presente no LFSR num dado instante, isto traduz-se no número de ciclos de clock que demorará o atraso:
 
 \begin{figure}[H]
     \centering
@@ -69,7 +69,7 @@ Abaixo está um testbench simples para validar o funcionamento do LFSR implement
     \caption{Simulação do LFSR implementado em VHDL}\label{fig:vivado_simulation_lfsr}
 \end{figure}
 
-Na figura~\ref{fig:vivado_simulation_lfsr2} Podemos ver que após ser aplicado um sinal de entrada no LFSR foi possível observar um sina de saída apôs aproximadamente $10us$
+Na figura~\ref{fig:vivado_simulation_lfsr2} Podemos ver que após ser aplicado um sinal de entrada no LFSR foi possível observar um sinal de saída apôs aproximadamente $10us$
 
 \begin{figure}[H]
     \centering
@@ -87,7 +87,7 @@ De seguida para o segundo sinal de entrada, podemos observar na figura~\ref{fig:
     \caption{Simulação do LFSR implementado em VHDL ampliado no segundo pulso}\label{fig:vivado_simulation_lfsr3}
 \end{figure}
 
-No caso do ultimo sinal de entrada, este não aparece na saída do LFSR visto que o dispositivo não tem memória e este sinal foi ativado enquando ele estava no processo de contagem.
+No caso do ultimo sinal de entrada, este não aparece na saída do LFSR visto que o dispositivo não tem memória e este sinal foi ativado enquanto ele estava no processo de contagem.
 
 \subsubsection{Gestão dos atrasos}
 A gestão dos atrasos no sistema é crucial para garantir a sincronização adequada entre os diferentes componentes. No caso do LFSR, os atrasos são implementados para assegurar que os valores gerados sejam utilizados de forma eficiente e sincronizada com o restante sistema.

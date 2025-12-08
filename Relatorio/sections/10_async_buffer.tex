@@ -1,6 +1,6 @@
 \section{Problema X - Distribuído com Buffers (Síncrono) e atraso entre eventos}
 
-Neste problema foi nos pedido que pegassemos no sistema distribuído com buffers síncronos do problema IX e adicionássemos um atraso entre eventos, para isso foi utilizado um LFSR (Linear Feedback Shift Register) que gera números pseudoaleatórios que são usados para introduzir atrasos variáveis entre os eventos do sistema.
+Neste problema foi nos pedido que fosse utilizado o sistema distribuído com buffers síncronos do problema IX e adicionando a este um atraso entre eventos, para isso foi utilizado um LFSR (Linear Feedback Shift Register) que gera números pseudoaleatórios que são usados para introduzir atrasos variáveis entre os eventos do sistema.
 
 \vspace{1em}
 
@@ -11,7 +11,7 @@ Reunindo tanto os controladores em VHDL como o código relacionado com o LFSR, s
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{img/tb_lab3_part10.png}
-    \caption{Simulação do sistema distribuído em FPGA com buffers assíncronos e atraso entre eventos}\label{fig:vivado_simulation_fpga_async_buffers_delay}
+    \caption{Simulação do sistema distribuído em FPGA com buffers síncronos e atraso entre eventos}\label{fig:vivado_simulation_fpga_async_buffers_delay}
 \end{figure}
 
 Nesta simulação podemos observar o correto funcionamento do sistema conforme a definição para as saídas do sistema em~\ref{lst:sequence_signals}.
