@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0.000 ns"></ZoomStartTime>
-      <ZoomEndTime time="3,000.001 ns"></ZoomEndTime>
-      <Cursor1Time time="902.290 ns"></Cursor1Time>
+      <ZoomStartTime time="0.000000 us"></ZoomStartTime>
+      <ZoomEndTime time="4.000001 us"></ZoomEndTime>
+      <Cursor1Time time="1.128983 us"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="276"></NameColumnWidth>
-      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+      <ValueColumnWidth column_width="96"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="26" />
+   <WVObjectSize size="27" />
    <wvobject fp_name="/tb_CSR_Lab_3_Part9_main/Clk" type="logic">
       <obj_property name="ElementShortName">Clk</obj_property>
       <obj_property name="ObjectShortName">Clk</obj_property>
@@ -122,5 +122,9 @@
    <wvobject fp_name="/tb_CSR_Lab_3_Part9_main/DUT/U_TD3/event_event120_td_3" type="logic">
       <obj_property name="ElementShortName">event_event120_td_3</obj_property>
       <obj_property name="ObjectShortName">event_event120_td_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_CSR_Lab_3_Part9_main/DUT/U_TD2/p_89_69" type="other">
+      <obj_property name="ElementShortName">p_89_69</obj_property>
+      <obj_property name="ObjectShortName">p_89_69</obj_property>
    </wvobject>
 </wave_config>
