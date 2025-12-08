@@ -1,4 +1,5 @@
-\section{Implementação em FPGA}
+\section{Problema III - Implementação em FPGA}
+
 Nesta secção, detalha-se o processo de implementação do sistema em uma FPGA (Field-Programmable Gate Array). 
 
 \subsection{Geração do código VHDL}
@@ -10,6 +11,8 @@ O código VHDL encontra-se descrito na figura abaixo.
 \end{figure}
 Este código foi gerado automaticamente a partir do modelo de Rede de Petri utilizando a framework IOPT-Tools, que traduz as especificações do modelo para uma descrição em VHDL adequada para síntese em FPGA.
 
+\newpage
+
 \subsection{Configuração de entradas/saídas}
 Para este projeto, foram configuradas as seguintes entradas e saídas na FPGA:
 
@@ -19,12 +22,47 @@ Para este projeto, foram configuradas as seguintes entradas e saídas na FPGA:
     \caption{Configuração de entradas e saídas na FPGA}\label{fig:fpga_io_configuration}
 \end{figure}
 
+\newpage
+
+\subsection{Simulações no Vivado}
+
+Na figura abaixo, encontra-se uma simulação realizada no ambiente Vivado, que demonstra o comportamento do sistema implementado na FPGA.
+
+\vspace{1em}
+
+Este teste consiste em aplicar o conjuntos de sinais de entraga que permite fazer o sistema evoluir dês o estado inicial até ao estado final, onde todas as peças foram processadas corretamente pelos tapetes transportadores e braços robóticos de acordo com a seguinte sequência:
+
+\vspace{1em}
+\begin{itemize}
+    \item Caixa no Tapete 1 (\textit{saída - movi == '1'})
+    \item Caixa no Braço 1 (\textit{saída - bot1 == '1'})
+    \item Caixa no Tapete 2 (\textit{saída - movi\_2 == '1'})
+    \item Caixa no Braço 2 (\textit{saída - bot2 == '1'})
+    \item Caixa no Tapete 3 (\textit{saída - movi\_3 == '1'})
+    \item Caixa no Braço 3 (\textit{saída - bot3 == '1'})
+\end{itemize}\label{lst:sequence_signals}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part3.png}
+    \caption{Simulação do sistema no Vivado}\label{fig:vivado_simulation}
+\end{figure}
+
+Esta simulação demonstra o correto processamento de uma caixa através dos tapetes transportadores e braços robóticos, validando a funcionalidade do sistema implementado na FPGA.
+
 \subsection{Testes Experimentais}
 
 Os testes experimentais foram realizados para validar o funcionamento do sistema implementado na FPGA. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
 
+\vspace{1em}
+
 Neste link tem acesso ao vídeo dos testes experimentais realizados na FPGA:
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/Ec1b2a4d3f5Fq0e8Z7k9j8cB7J6K8L9N4EQRcoB3EP6g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ZhfX5e}{Vídeo - Testes experimentais na FPGA}
+\vspace{1em}
+
+
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EadlippZ-HlIhwTW8tNYGuYBzXu-Dr_e1RtQqaIdMuU_rg?e=baDicl}{Vídeo - Testes experimentais na FPGA - Problema III}
+
+\vspace{1em}
 
 Quando comparados com os resultados da simulação, os testes na FPGA demonstraram um desempenho consistente, validando a eficácia do modelo implementado.

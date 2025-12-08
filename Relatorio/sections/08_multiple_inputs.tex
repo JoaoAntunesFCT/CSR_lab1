@@ -1,11 +1,11 @@
-\section{Buffers de Capacidade Finita}
+\section{Problema VIII - Buffers de Capacidade Finita}
 
 \subsection{Modificação do modelo}
 A modificação do modelo para múltiplas peças envolve a adaptação dos componentes do sistema para lidar com a entrada e saída de várias peças simultaneamente. Isso inclui a implementação de buffers de capacidade finita que permitem o armazenamento temporário das peças, garantindo que o sistema possa operar de forma eficiente mesmo quando há variações na taxa de entrada ou saída.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/petri_tapete_singular_part8.png}
+    \includegraphics[width=0.6\textwidth]{img/petri_tapete_singular_part8.png}
     \caption{Rede de Petri - modelo modificado para múltiplas peças (tapete único)}\label{fig:petri_single_bufer}
 \end{figure}
 
@@ -15,12 +15,26 @@ A interconexão dos componentes no modelo modificado é realizada através de es
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{img/petri_part8.png}
+    \includegraphics[width=0.6\textwidth]{img/petri_part8.png}
     \caption{Rede de Petri - interconexão dos diferentes tapetes}\label{fig:petri_multiple_bufer}
 \end{figure}
 
-\subsection{Módulo de visualização do número de objetos}
-%print módulo de visualização
+\subsubsection{Geração e análise do espaço de estados}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/petri_statespacePart8.png}
+    \caption{Espaço de estados do modelo modificado para múltiplas peças}\label{fig:state_space_multiple_bufer}
+\end{figure}
+
+Atendendo á figura~\ref{fig:state_space_multiple_bufer}, podemos observar o espaço de estados do modelo.
+
+\begin{itemize}
+    \item Este espaço de estados contém 3000 estados possíveis com 43691 ligações entre estados.
+    \item Não existem deadlocks, conflitos ou ligações inválidas no sistema.
+\end{itemize}
+
+\newpage
 
 \subsection{Simulação e Análise}
 
@@ -28,13 +42,43 @@ A interconexão dos componentes no modelo modificado é realizada através de es
 
 Neste link tem acesso ao vídeo da simulação com token-player do modelo modificado para múltiplas peças:
 
+\vspace{1em}
+
 \href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EdqLhfCyBbJAiwGtGwZ0IOQBhXcqFjNrwpJRm-figzs-oA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=e9eSaZ}{Vídeo - Simulação com token-player do modelo modificado para múltiplas peças}
 
-\subsubsection{Geração e análise do espaço de estados}
-
 \subsection{Implementação em FPGA}
-%print implementação FPGA
 
-\subsection{Análise de resultados}
-%prints e análise de resultados
+Gerando novamente o código VHDL a partir do modelo modificado para múltiplas peças, foi necessário, criar um compoenente relacionado com o display de 7 segmentos que nos permiter ver quantas caixas estão presentes em cada tapete durante o decorrer do programa.
+
+\vspace{1em}
+
+A baixo vemos o testbnch realizado no Vivado:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part8.png}
+    \caption{Testbench no Vivado - modelo modificado para múltiplas peças}\label{fig:tb_lab3_part8}
+\end{figure}
+
+A simulação confirma o correto funcionamento do sistema para lidar com uma caixa, conforme definido no modelo, com a possibilidade de visualizar as variáveis relacionadas com o display de 7 segmentos.
+
+\newpage
+
+\subsection{Testes experimentais}
+
+Neste vídeo podemos confirmar o correto funcionamento do modelo para lidar com duas caixas.
+
+Os testes experimentais foram realizados para validar o funcionamento do sistema implementado na FPGA. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
+
+\vspace{1em}
+
+Neste link tem acesso ao vídeo dos testes experimentais realizados na FPGA com LFSR:
+
+\vspace{1em}
+
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EUfG0AmgpbdCnV3bps2Vfq8Bga6xAOAGdk0vqau80iyzBw?e=B5ZtTT}{Vídeo - Testes experimentais na FPGA (com LFSR) - Problema VIII}
+
+\vspace{1em}
+
+A análise revelou que o desempenho da FPGA é consistente com as previsões do modelo, demonstrando a eficácia da implementação e a precisão do sistema projetado.
 

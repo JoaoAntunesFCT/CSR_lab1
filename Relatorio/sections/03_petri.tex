@@ -1,27 +1,52 @@
-\section{Redes de Petri}
+\section{Problema I - modelação de um sistema em IOPT-Tools}
 
-\subsection{IOPT-Tools}
+No problema I, foi pedido para modelar um sistema de tapetes transportadores com garras robôticas com recurso a redes de Petri, utilizando a ferramenta IOPT-Tools.\\
 
-\subsubsection{Rede de Petri --- Tapete Singular}
+
+A rede de alto nível dada no enunciado consiste em:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/petri_alto_nivel.png}
+    \caption{Rede de Petri --- Alto Nível}\label{fig:petri_alto_nivel}
+\end{figure}
+
+Esta rede de alto nível permite implementar o controlador que vamos considerar daqui para a frente.\\
+
+
+Na imagem~\ref{fig:petri_tapete_singular}, podemos observar a implementação de um conjunto tapete mais braço robôtio. 
+
+\subsection{Rede de Petri --- Tapete Singular}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{img/petri_tapete_singular.png}
     \caption{Rede de Petri --- Tapete Singular}\label{fig:petri_tapete_singular}
 \end{figure}
 
-\subsubsection{Rede de Petri --- Modelo Completo}
+Atendendo á implementação da figura~\ref{fig:petri_tapete_singular}, podemos expandir o modelo para o sistema completo com 3 tapetes e 3 braços robóticos, como se pode observar na figura~\ref{fig:petri_modelo_completo}.
+
+\subsection{Rede de Petri --- Modelo Completo}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{img/petri_modelo_completo.png}
     \caption{Rede de Petri --- Modelo Completo}\label{fig:petri_modelo_completo}
 \end{figure}
 
-\subsubsection{Rede de Petri --- Fusion set}
+\newpage
+
+Seguindo os passos do problema I, realizamos a fusão dos conjuntos de lugares e transições, como se pode observar nas figuras~\ref{fig:petri_fusion_set}.
+
+\subsection{Rede de Petri --- Fusion set}
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{img/petri_model_merge.png}
     \caption{Rede de Petri --- Fusion set}\label{fig:petri_fusion_set}
 \end{figure}
+
+\newpage
+
+Por fim utilizando o botão "net addition" da ferramenta IOPT-Tools, obtemos o modelo final do sistema, que se pode observar na figura~\ref{fig:petri_node_set}.
+Este sistema implementa o controlador descrito no enunciado do problema I, de forma centralizada e síncrona.
 
 \subsubsection{Rede de Petri --- Node set}
 \begin{figure}[H]
@@ -30,11 +55,13 @@
     \caption{Rede de Petri - Node set}\label{fig:petri_node_set}
 \end{figure}
 
-\subsection{Simulação e Análise}
+\section{Problema II - Análise do modelo criado}
 
-\subsubsection{Simulação com token-player}
+Neste problema é nos pedido que validemos o modelo criado no problema I, recorrendo a simulação. e por fim é nos pedido que geremos o espaço de estados.
 
-Neste link tem acesso ao vídeo da simulação com token-player: 
+\subsection{Simulação com token-player}
+
+Neste link tem acesso ao vídeo da simulação com token-player na plataforma IOPT-Tools do modelo "node set".: 
 
 \hspace{1em}
 
@@ -47,3 +74,14 @@ Neste link tem acesso ao vídeo da simulação com token-player:
     \includegraphics[width=1\textwidth]{img/petri_statespace.png}
     \caption{Rede de Petri --- Espaço de Estados}\label{fig:petri_statespace}
 \end{figure}
+
+Atendendo á figura~\ref{fig:petri_statespace}, podemos observar o espaço de estados do modelo "node set".
+
+\begin{itemize}
+    \item Este espaço de estados contém 622 estados possíveis com 3741 ligações entre estados.
+    \item Não existem deadlocks, conflitos ou ligações inválidas no sistema.
+\end{itemize}
+
+Feito isto utualizados os bounds e geramos o código VHDL.
+
+

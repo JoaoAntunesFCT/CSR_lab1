@@ -1,16 +1,74 @@
-\section{Distribuído com Buffers (Síncrono)}
+\section{Problema IX - Distribuído com Buffers (Síncrono)}
 
 \subsection{Aplicação síncrona ao buffer de capacidade finita}
 A aplicação síncrona ao buffer de capacidade finita envolve a utilização de canais síncronos para gerir o fluxo de dados entre os diferentes módulos do sistema. Esta abordagem permite que o buffer opere de forma eficiente, garantindo que as peças sejam armazenadas e transferidas de acordo com um clock global, o que facilita a coordenação entre os componentes (minimizando a chance de perda de peças).
+
+\vspace{1em}
+
+á semelhança do problema V efetuamos os paços necessários que levaram ao split do controlador em 3 partes:
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/petri_sync_channels_part9.png}
+        \caption{Decomposição do modelo com canais sincronos}\label{fig:petri_sync_channels_part9}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/petri_async_channels_part9.png}
+        \caption{Decomposição do modelo com canais assincronos}\label{fig:petri_async_channels_part9}
+    \end{minipage}
+\end{figure}
+
+\newpage
+
 \subsection{Decomposição e implementação distribuída}
 A decomposição e implementação distribuída do sistema com buffers de capacidade finita envolve a divisão do sistema em módulos independentes que se comunicam através de canais síncronos. Cada módulo é responsável por uma parte específica do processamento, como a gestão do buffer, a entrada e saída de peças, e o controlo dos atuadores. Esta abordagem permite uma maior flexibilidade e escalabilidade, facilitando a adaptação do sistema a diferentes requisitos operacionais.
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/async_TD1_part9.png}
+        \caption{Rede de Petri - modelo distribuído com buffers síncronos - Conrolador 1}\label{fig:petri1_distributed_part9}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.48\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/async_TD2_part9.png}
+        \caption{Rede de Petri - modelo distribuído com buffers síncronos - Controlador 2}\label{fig:petri2_distributed_part9}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{img/async_TD3_part9.png}
+    \caption{Rede de Petri - modelo distribuído com buffers síncronos - Controlador 3}\label{fig:petr3_distributed_part9}
+\end{figure}
+
+\subsection{Simulação no Vivado}
+
+Abaixo está a simulação do sistema distribuído implementado na FPGA com buffers síncronos, onde podemos observar o correto funcionamento do sistema conforme a definição para as saídas do sistema em~\ref{lst:sequence_signals}, vemos também a variavel Display\_Value[11:0] que contem o valor do display de 7 segmnentos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{img/tb_lab3_part9.png}
+    \caption{Simulação do sistema distribuído em FPGA com buffers síncronos}\label{fig:vivado_simulation_fpga_sync_buffers}
+\end{figure}
 
 \subsection{Testes Experimentais}
 Os testes experimentais foram realizados para validar o funcionamento do sistema implementado com buffers síncronos. Os resultados obtidos foram comparados com os resultados da simulação para garantir a consistência e a precisão do modelo.
 
+\vspace{1em}
+
 Neste link tem acesso ao vídeo dos testes experimentais realizados com buffers síncronos:
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/Ec1b2a4d3f5Fq0e8Z7k9j8cB7J6K8L9N4EQRcoB3EP6g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ZhfX5e}{Vídeo - Testes experimentais com buffers síncronos}
+\vspace{1em}
+
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EU9933Ynxy5KmcW0px4vtWABUfdrTQnUQmOR4S1zHLwRHA?e=Sr20DO}{Vídeo - Testes experimentais dos controladores com buffers síncronos descentralizados - Problema IX}
+
+\vspace{1em}
 
 A análise revelou que o sistema com buffers síncronos é capaz de operar de forma eficaz, mantendo a integridade dos dados e garantindo a sincronização adequada entre os diferentes módulos do sistema.
 

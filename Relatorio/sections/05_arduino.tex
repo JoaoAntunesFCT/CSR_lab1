@@ -1,6 +1,12 @@
-\section{Implementação em Arduino}
+\section{Problema IV - Implementação em Arduino}
 
-\subsection{Geração do código C}
+Nesta seção foi  nos pedido que implementassemos o sistema desenvlvido no problema I em um microcontrolador Arduino Uno.
+
+\vspace{1em}
+
+Para isso foi necessário utilzar o dispositivo FPGA para ter acesso a um conjunto de LEDs e switches que permitem o utilizador interagir com o sistema implementado no Arduino.
+
+\subsection{Implementação no arduino e Geração do código C}
 O código C encontra-se descrito na figura abaixo.
 \begin{figure}[H]
     \centering
@@ -9,19 +15,36 @@ O código C encontra-se descrito na figura abaixo.
 \end{figure}
 Este código foi gerado automaticamente a partir do modelo de Rede de Petri utilizando a framework IOPT-Tools, que traduz as especificações do modelo para uma descrição em C adequada para execução em microcontroladores Arduino.
 
+\newpage
+
 \subsection{Configuração de entradas/saídas}
+
 Para este projeto, foram configuradas as seguintes entradas e saídas no Arduino:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{img/c_i_os.png}
+    \includegraphics[width=0.55\textwidth]{img/c_i_os.png}
     \caption{Configuração de entradas e saídas no Arduino}\label{fig:arduino_io_configuration}
+\end{figure}
+
+Do lado da FPGA foi preciso mapear os Headers JC e JD  da FPGA para os pinos digitais do Arduino, conforme o port mapping presente na figura abaixo.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.55\textwidth]{img/fpga_to_arduino_mappingIV.png}
+    \caption{Mapeamento dos Headers JC e JD da FPGA}\label{fig:fpga_arduino_mapping}
 \end{figure}
 
 \subsection{Testes Experimentais}
 Os resultados dos testes no Arduino foram comparados com os resultados da simulação e da implementação em FPGA. 
 
+\vspace{1em}
+
 Neste link tem acesso ao vídeo dos testes experimentais realizados no Arduino:
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/Ec1b2a4d3f5Fq0e8Z7k9j8cB7J6K8L9N4EQRcoB3EP6g?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=ZhfX5e}{Vídeo - Testes experimentais no Arduino}
+\vspace{1em}
+
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EdtQmH0DQrJLrE569aM369kBFdzp8yKErZgNZiyMTyIcxw?e=EkheXD}{Vídeo - Testes experimentais no Arduino - Parte IV}
+
+\vspace{1em}
 
 A análise revelou que o desempenho do Arduino é consistente com as previsões do modelo, embora possa apresentar algumas limitações em termos de velocidade e capacidade de processamento em comparação com a FPGA.

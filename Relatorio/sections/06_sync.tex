@@ -1,4 +1,4 @@
-\section{Controlador Distribuído em regime Síncrono}
+\section{Problema V - Controlador Distribuído em regime Síncrono}
 
 \subsection{Cutting Set}
 A identificação do conjunto de corte (cutting set) é um passo crucial na decomposição de sistemas distribuídos. Este conjunto consiste em um grupo de canais ou conexões que, quando removidos, dividem o sistema em subsistemas independentes. A escolha adequada do cutting set permite a implementação eficiente de controladores distribuídos, minimizando a complexidade da comunicação entre os módulos.
@@ -11,6 +11,8 @@ A decomposição usando SPLIT (Synchronous Parallel Logic Interconnect Technolog
     \caption{Decomposição SPLIT do sistema em módulos independentes.}
     \label{fig:split_decomposition}
 \end{figure}
+
+\newpage
 
 \subsection{Modelo com canais síncronos}
 A modelação com canais síncronos envolve a definição de canais de comunicação que operam em sincronia, permitindo a troca de informações entre os módulos de forma coordenada. Essa abordagem é fundamental para garantir a consistência e a previsibilidade no comportamento do sistema. Esta modelação encontra-se representada na figura abaixo.
@@ -37,22 +39,22 @@ A decomposição GALS (Globally Asynchronous, Locally Synchronous) envolve a cri
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/petri_event_controler_1.png}
-        \caption{Tapete 1 com controlo por eventos}
+        \caption{Controlador 1}
         \label{fig:gals_decomposition_1}
     \end{subfigure}\hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/petri_event_controler_2.png}
-        \caption{Tapete 2 com controlo por eventos}
+        \caption{Controlador 2}
         \label{fig:gals_decomposition_2}
     \end{subfigure}\hfill
     \begin{subfigure}[b]{0.32\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/petri_event_controler_3.png}
-        \caption{Tapete 3 com controlo por eventos}
+        \caption{Controlador 3}
         \label{fig:gals_decomposition_3}
     \end{subfigure}
-    \caption{Decomposição GALS — Tapetes 1–3 com controlo por eventos}
+    \caption{Decomposição GALS — Controladores 1–3 com controlo por eventos}
     \label{fig:gals_decomposition}
 \end{figure}
 
@@ -64,6 +66,6 @@ abaixo estão os links para os vídeos das simulações realizadas com o token-p
 
 \vspace{1em}
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/ESR4w4p0PK9CgxJYC0eDlT8BZZrfzpxHBbuzyL5D78P0Gg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=liF1mC}{Vídeo — decomposição do modelo com canais síncronos}
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/ESR4w4p0PK9CgxJYC0eDlT8BZZrfzpxHBbuzyL5D78P0Gg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=liF1mC}{Vídeo — decomposição do modelo com canais síncronos - Problema V parte a)}
 
-\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EWEOa2jxXRNFmaCiO5c6iG4BP21vyCbQSKYiZQ8HcoeOrg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=j6h8N4}{Vídeo — decomposição do modelo com canais assíncronos}
+\href{https://unlpt-my.sharepoint.com/:v:/g/personal/jafe_lopes_fct_unl_pt/EWEOa2jxXRNFmaCiO5c6iG4BP21vyCbQSKYiZQ8HcoeOrg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=j6h8N4}{Vídeo — decomposição do modelo com canais assíncronos - Problema V parte b)}
